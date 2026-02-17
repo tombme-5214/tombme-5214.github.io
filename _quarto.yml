@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Tom Blume"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - projects.qmd
+      - hobby.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
