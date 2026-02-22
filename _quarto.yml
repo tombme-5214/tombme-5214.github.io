@@ -9,7 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - cv.qmd
+      -  href: assets/cv_tom_blume.pdf
+         text: CV
       - projects.qmd
       - hobby.qmd
 

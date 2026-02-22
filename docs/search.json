@@ -19,5 +19,12 @@
     "title": "About Me",
     "section": "",
     "text": "Biography\nAbout me\n\n\nMy Skills\n\n\nMy Hobbies"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "title: “CV”\nimage: /assets/cv_tom_blume.pdf"
   }
 ]
