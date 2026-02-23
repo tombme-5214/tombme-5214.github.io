@@ -12,7 +12,7 @@ website:
       -  href: assets/cv_tom_blume.pdf
          text: CV
       - projects.qmd
-      - href: hobby.qmd
+      - href: fiore.qmd
         text: DJing & Producing
       
 

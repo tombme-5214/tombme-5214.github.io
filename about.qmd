@@ -1,9 +1,40 @@
 ---
 title: "About Me"
 ---
-### Biography
-*About me*
+## Biography
+*Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.*
 
-### My Skills
+*After graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.*
 
-### My Hobbies
+*The fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.*
+
+*Currently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027.*
+
+## My Skills
+### Languages 
+German - Mothertough (C2)
+
+English - Business Fluent (C1 - 7.5 IELTS Score)
+
+Spanish - Basics (A2)
+
+### IT Skills
+* MS Software
+    + Excel
+    + Powerpoint
+    + Word
+    + PowerBI
+* SQL
+* Python
+* Quarto
+    + YAML
+    + Markdown
+* Machien Learning
+
+## Hobbies  
+* Fitness 
+* Cooking
+* Hiking
+* Travling
+* [Djing](https://tombme-5214.github.io/hobby.html)
+* [Producing](https://tombme-5214.github.io/hobby.html)

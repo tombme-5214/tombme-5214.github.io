@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Tom Blume",
+    "objectID": "fiore.html",
+    "href": "fiore.html",
+    "title": "Fiore",
     "section": "",
-    "text": "This is a website for Tom Blume."
+    "text": "TipDJ Alias\n\n\n\nFiore is my DJ & Producer alias, rooted in my last name Blume, which means flower in German. A close Italian friend nicknamed me Fiore (the Italian word for flower). I liked its sound of it and I used it as my alias."
+  },
+  {
+    "objectID": "fiore.html#djing",
+    "href": "fiore.html#djing",
+    "title": "Fiore",
+    "section": "DJing",
+    "text": "DJing\n\nAbout\nI have been DJing for the past two years, starting on a Pioneer DDJ-FLX4 controller and progressively advancing to confidently perform on full Pioneer club setups. Through regular studio sessions, B2B sets with other DJs, and hands-on practice on CDJs, I have continuously refined my technical skills and musical identity. Having already gained live experience playing at rooftop parties in Barcelona, Nubar on Christmas Day 2025 and the Pav at Trinity College Dublin, I am now looking to establish myself as a DJ in the underground electric music scene of Dublin. This year, I joined the DCU DJ Society as a Subcommittee member, further deepening my involvement in the local DJ community.\nMy sound is rooted in the underground electronic music scene, with a strong focus on:\n\nHard Groove\nSchranz\nHard Bounce\n\nCurrently, I am organising “GB SOC: NEXT GEN NOISE”, a party concept designed to provide emerging DCU DJs with a platform to showcase their talent while creating an energetic and memorable night for students and electronic music enthusiasts.\n\n\nSets\n\nSchranz Set • Fiore\n\n  \n\n\n\n\n\n\nNote\n\n\n\nThe cover is the Soundcloud link!"
   },
   {
     "objectID": "projects.html",
@@ -18,62 +25,27 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "Biography\nAbout me\n\n\nMy Skills\n\n\nMy Hobbies"
+    "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
   },
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
+    "objectID": "about.html#biography",
+    "href": "about.html#biography",
+    "title": "About Me",
     "section": "",
-    "text": "title: “CV”\nimage: /assets/cv_tom_blume.pdf"
+    "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
   },
   {
-    "objectID": "hobby.html",
-    "href": "hobby.html",
-    "title": "DJing & Producing",
-    "section": "",
-    "text": "DJing\n\nAbout\n\n\nExperince\n\n\nSets\n\n\n\nProducing\n\nAbout\n\n\nExperince\n\n\nTracks"
+    "objectID": "about.html#my-skills",
+    "href": "about.html#my-skills",
+    "title": "About Me",
+    "section": "My Skills",
+    "text": "My Skills\n\nLanguages\nGerman - Mothertough (C2)\nEnglish - Business Fluent (C1 - 7.5 IELTS Score)\nSpanish - Basics (A2)\n\n\nIT Skills\n\nMS Software\n\nExcel\nPowerpoint\nWord\nPowerBI\n\nSQL\nPython\nQuarto\n\nYAML\nMarkdown\n\nMachien Learning"
   },
   {
-    "objectID": "hobby.html#about-1",
-    "href": "hobby.html#about-1",
-    "title": "DJing & Producing",
-    "section": "About",
-    "text": "About"
-  },
-  {
-    "objectID": "hobby.html#experince-1",
-    "href": "hobby.html#experince-1",
-    "title": "DJing & Producing",
-    "section": "Experince",
-    "text": "Experince"
-  },
-  {
-    "objectID": "hobby.html#sets-1",
-    "href": "hobby.html#sets-1",
-    "title": "DJing & Producing",
-    "section": "Sets",
-    "text": "Sets"
-  },
-  {
-    "objectID": "hobby.html#about",
-    "href": "hobby.html#about",
-    "title": "DJing & Producing",
-    "section": "About",
-    "text": "About"
-  },
-  {
-    "objectID": "hobby.html#experince",
-    "href": "hobby.html#experince",
-    "title": "DJing & Producing",
-    "section": "Experince",
-    "text": "Experince"
-  },
-  {
-    "objectID": "hobby.html#sets",
-    "href": "hobby.html#sets",
-    "title": "DJing & Producing",
-    "section": "Sets",
-    "text": "Sets"
+    "objectID": "about.html#hobbies",
+    "href": "about.html#hobbies",
+    "title": "About Me",
+    "section": "Hobbies",
+    "text": "Hobbies\n\nFitness\nCooking\nHiking\nTravling\nDjing\nProducing"
   }
 ]

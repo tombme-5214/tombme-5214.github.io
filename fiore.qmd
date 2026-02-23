@@ -1,0 +1,69 @@
+---
+title: "Fiore" 
+about: 
+  template: solana
+  links:
+    - icon: soundwave
+      text: SoundCloud
+      href: https://soundcloud.com/tom-blume-400248903?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+      target: _blank 
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/fiore.5214/
+      target: _blank 
+    - icon: envelope
+      text: Email
+      href: mailto:fiore.5214.dj@gmail.com
+---
+:::{.callout-tip}
+### DJ Alias
+**Fiore** is my DJ & Producer alias, rooted in my last name Blume, which means flower in German. 
+A close Italian friend nicknamed me Fiore *(the Italian word for flower)*. 
+I liked its sound of it and I used it as my alias.
+:::
+
+## DJing
+### About
+I have been DJing for the past two years, starting on a Pioneer DDJ-FLX4 controller and progressively advancing to confidently perform on full Pioneer club setups. 
+Through regular studio sessions, B2B sets with other DJs, and hands-on practice on CDJs, I have continuously refined my technical skills and musical identity. 
+Having already gained live experience playing at rooftop parties in Barcelona, Nubar on Christmas Day 2025 and the Pav at Trinity College Dublin, I am now looking to establish myself as a DJ in the underground electric music scene of Dublin. 
+This year, I joined the DCU DJ Society as a Subcommittee member, further deepening my involvement in the local DJ community.
+
+My sound is rooted in the underground electronic music scene, with a strong focus on:
+
+  * Hard Groove
+  * Schranz
+  * Hard Bounce
+
+Currently, I am organising “GB SOC: NEXT GEN NOISE”, a party concept designed to provide emerging DCU DJs with a platform to showcase their talent while creating an energetic and memorable night for students and electronic music enthusiasts.
+
+### Sets
+
+> **Schranz Set** • *Fiore*
+
+<a href="https://soundcloud.com/tom-blume-400248903/schranz-never-dies-3?si=dbd2a352d7e74cc98f8b30140d057cf3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+  <img src="/assets/cover_schranz.jpeg" alt="SoundCloud Link" style="width: 20em; height: 20em; object-fit: cover; object-position: bottom;">
+</a>
+
+:::{.callout-note}
+The `cover` is the Soundcloud link!
+:::
+
+# Producing
+### About
+
+Next to DJing, I’ve recently started producing my own music to accelerate my skills and infuse my mixes with a more personal sound. 
+I use Ableton Live and have purchased several sample packs to get started. 
+At the end of January, I published my first track, “Turn It Up!!!” *(Schranz mix)* on SoundCloud for listening. 
+I’m currently focusing my production skills on Schranz and Hard Groove, working on multiple Ableton projects, and hoping to release a new track soon.
+
+### Tracks
+> **Trun it up!!! (original mix)** • *Fiore*
+: `Schranz` `Hard Techno`
+
+<a href="https://soundcloud.com/tom-blume-400248903/turn-it-up-schranz-mix?si=e22669f76a504831bd36c2b3bacb70ae&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+  <img src="/assets/track_cover_1.jpg" alt="SoundCloud Link" style="width: 20em; height: 20em; object-fit: cover; object-position: bottom;">
+</a>
+
+:::{.callout-note}
+The `cover` is the Soundcloud link!
