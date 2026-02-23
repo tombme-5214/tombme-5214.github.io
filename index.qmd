@@ -1,5 +1,6 @@
 ---
-# title: "Tom Blume" 
+title: "Tom Blume" 
+subtitle: "Global Business Student @DCU Business School"
 image: /assets/headshot.jpeg 
 toc: false
 about: 
@@ -7,12 +8,17 @@ about:
   image-shape: round
   image-width: 20em
   links:
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/tom-bme
-      target: _blank # opens link in a new browser tab
-    - text: GitHub
+      target: _blank 
+    - icon: github
+      text: GitHub
       href: https://github.com/tombme-5214
       target: _blank 
-    - text: Email
+    - icon: envelope
+      text: Email
       href: mailto:tom.blume2@mail.dcu.ie
+
+page-layout: full
 ---
