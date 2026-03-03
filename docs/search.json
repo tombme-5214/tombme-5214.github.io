@@ -18,34 +18,104 @@
     "href": "projects.html",
     "title": "My Projects",
     "section": "",
-    "text": "Here will be my Projects"
+    "text": "Commming Soon…"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About Me",
+    "title": "About",
     "section": "",
     "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
   },
   {
     "objectID": "about.html#biography",
     "href": "about.html#biography",
-    "title": "About Me",
+    "title": "About",
     "section": "",
     "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
   },
   {
     "objectID": "about.html#my-skills",
     "href": "about.html#my-skills",
-    "title": "About Me",
+    "title": "About",
     "section": "My Skills",
     "text": "My Skills\n\nLanguages\nGerman - Mothertough (C2)\nEnglish - Business Fluent (C1 - 7.5 IELTS Score)\nSpanish - Basics (A2)\n\n\nIT Skills\n\nMS Software\n\nExcel\nPowerpoint\nWord\nPowerBI\n\nSQL\nPython\nQuarto\n\nYAML\nMarkdown\n\nMachine Learning"
   },
   {
     "objectID": "about.html#hobbies",
     "href": "about.html#hobbies",
-    "title": "About Me",
+    "title": "About",
     "section": "Hobbies",
     "text": "Hobbies\n\nFitness\nCooking\nHiking\nTravling\nDjing\nProducing"
+  },
+  {
+    "objectID": "projects.html#about-1",
+    "href": "projects.html#about-1",
+    "title": "My Projects",
+    "section": "About",
+    "text": "About"
+  },
+  {
+    "objectID": "projects.html#concept-paper",
+    "href": "projects.html#concept-paper",
+    "title": "My Projects",
+    "section": "Concept Paper",
+    "text": "Concept Paper"
+  },
+  {
+    "objectID": "projects.html#feasibility-report",
+    "href": "projects.html#feasibility-report",
+    "title": "My Projects",
+    "section": "Feasibility Report",
+    "text": "Feasibility Report\n\nMarketing Report & Video\n\n\nBusiness Plan\nCommming Soon…"
+  },
+  {
+    "objectID": "projects.html#marketing-report-video",
+    "href": "projects.html#marketing-report-video",
+    "title": "My Projects",
+    "section": "Marketing Report & Video",
+    "text": "Marketing Report & Video"
+  },
+  {
+    "objectID": "projects.html#business-plan",
+    "href": "projects.html#business-plan",
+    "title": "My Projects",
+    "section": "Business Plan",
+    "text": "Business Plan"
+  },
+  {
+    "objectID": "projects.html#about-2",
+    "href": "projects.html#about-2",
+    "title": "My Projects",
+    "section": "About",
+    "text": "About"
+  },
+  {
+    "objectID": "projects.html#using-classification-algorithms-in-heart-disease-prediction",
+    "href": "projects.html#using-classification-algorithms-in-heart-disease-prediction",
+    "title": "My Projects",
+    "section": "Using Classification Algorithms in Heart Disease Prediction",
+    "text": "Using Classification Algorithms in Heart Disease Prediction"
+  },
+  {
+    "objectID": "projects.html#bachelor-thesis",
+    "href": "projects.html#bachelor-thesis",
+    "title": "My Projects",
+    "section": "",
+    "text": "Commming Soon…"
+  },
+  {
+    "objectID": "projects.html#new-enterprise-development",
+    "href": "projects.html#new-enterprise-development",
+    "title": "My Projects",
+    "section": "New Enterprise Development",
+    "text": "New Enterprise Development\n\nAbout\n\n\nConcept Paper\n\n\nFeasibility Report\n\n\nMarketing Report & Video\n\n\nBusiness Plan\n\nCommming Soon…"
+  },
+  {
+    "objectID": "projects.html#machine-learning-advanced-python",
+    "href": "projects.html#machine-learning-advanced-python",
+    "title": "My Projects",
+    "section": "Machine Learning & Advanced Python",
+    "text": "Machine Learning & Advanced Python\n\nAbout\n\n\nUsing Classification Algorithms in Heart Disease Prediction\n\nCommming Soon…"
   }
 ]

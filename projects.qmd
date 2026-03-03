@@ -1,4 +1,48 @@
 ---
 title: "My Projects"
 ---
-Here will be my Projects
+## Bachelor Thesis 
+
+#### About
+
+
+#### Research Proposal
+
+[![](assets/_project_pictures/_bt_rp.jpg)](assets/_projects/_research_proposal.pdf)
+
+#### Litreature Review
+
+
+#### Methodology
+
+
+> *Commming Soon...*
+
+## New Enterprise Development 
+
+#### About
+
+
+#### Concept Paper
+
+
+#### Feasibility Report 
+
+
+#### Marketing Report & Video
+
+
+#### Business Plan
+
+
+> *Commming Soon...*
+
+## Machine Learning & Advanced Python 
+
+#### About 
+
+
+#### Using Classification Algorithms in Heart Disease Prediction 
+
+
+> *Commming Soon...*

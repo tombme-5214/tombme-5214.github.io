@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About"
 ---
 ## Biography
 *Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.*
