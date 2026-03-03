@@ -4,7 +4,9 @@ project:
 
 website:
   title: "Tom Blume"
+  favicon: assets/favicon.jpg
   navbar:
+    logo: assets/logo.png
     right:
       - href: index.qmd
         text: Home

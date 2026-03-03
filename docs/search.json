@@ -25,14 +25,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
+    "text": "Academic & Professional Overview\n\n\n\n\n\nNationality\nGerman\n\n\nBased in\nDublin, Ireland\n\n\nBachelor\nInternational Management (Double Degree) @ ESB Global Business (Double Degree) @ DCU\n\n\nBachelor Minor\nBusiness Analytics\n\n\nWork Experience\nWRS Energie+Druckluft GmbH (Stuttgart, Germany) Robert Bosch GmbH (Reutlingen, Germany) Click&Boat SAS (Barcelona, Spain)\n\n\nMaster\nAdmitted to CEMS MIM Program @ UCD Smurfit Business School"
   },
   {
     "objectID": "about.html#biography",
     "href": "about.html#biography",
     "title": "About",
-    "section": "",
-    "text": "Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
+    "section": "Biography",
+    "text": "Biography\nTom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.\nAfter graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.\nThe fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.\nCurrently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027."
   },
   {
     "objectID": "about.html#my-skills",
@@ -109,7 +109,7 @@
     "href": "projects.html#new-enterprise-development",
     "title": "My Projects",
     "section": "New Enterprise Development",
-    "text": "New Enterprise Development\n\nAbout\n\n\nConcept Paper\n\n\n\nFeasibility Report\n\n\n\nMarketing Report\n\n\n\nMarketing Video\n\n\n\nBusiness Plan\n\nCommming Soon…"
+    "text": "New Enterprise Development\n\nAbout\n\n\nConcept Paper\n  \n\n\nFeasibility Report\n  \n\n\nMarketing Report\n  \n\n\nMarketing Video\n  \n\n\nBusiness Plan\n\nCommming Soon…"
   },
   {
     "objectID": "projects.html#machine-learning-advanced-python",
@@ -124,5 +124,12 @@
     "title": "My Projects",
     "section": "",
     "text": "Commming Soon…"
+  },
+  {
+    "objectID": "about.html#quick-overview",
+    "href": "about.html#quick-overview",
+    "title": "About",
+    "section": "",
+    "text": "Academic & Professional Overview\n\n\n\n\n\nNationality\nGerman\n\n\nBased in\nDublin, Ireland\n\n\nBachelor\nInternational Management (IMX German-Irish Double Degree) @ ESB Business School & Global Business (Double Degree) @ DCU Business School\n\n\nBachelor Minor\nBusiness Analytics\n\n\nWork Experience\nWRS Energie+Druckluft GmbH (Stuttgart, Germany); Robert Bosch GmbH (Reutlingen, Germany); Click&Boat SAS (Barcelona, Spain)\n\n\nMaster\nAdmitted to CEMS MIM Program @ UCD Smurfit Business School"
   }
 ]

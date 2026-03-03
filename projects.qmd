@@ -7,10 +7,14 @@ title: "My Projects"
 
 
 #### Research Proposal
-[![](assets/_project_pictures/_bt_rp.jpg)](assets/_projects/_research_proposal.pdf)
+<a href="assets/_projects/_research_proposal.pdf">
+  <img src="assets/_project_pictures/_bt_rp.jpg" width="40%">
+</a>
 
 #### Litreature Review
-[![](assets/_project_pictures/_bt_lr.jpg)](assets/_projects/_literature_review.pdf)
+<a href="assets/_projects/_literature_review.pdf">
+  <img src="assets/_project_pictures/_bt_lr.jpg" width="40%">
+</a>
 
 #### Methodology
 
@@ -23,16 +27,24 @@ title: "My Projects"
 
 
 #### Concept Paper
-[![](assets/_project_pictures/_ft_cp.jpg)](assets/_projects/_concept_paper.pdf)
+<a href="assets/_projects/_concept_paper.pdf">
+  <img src="assets/_project_pictures/_ft_cp.jpg" width="40%">
+</a>
 
 #### Feasibility Report 
-[![](assets/_project_pictures/_ft_fr.jpg)](assets/_projects/_feasibility_report.pdf)
+<a href="assets/_projects/_feasibility_report.pdf">
+  <img src="assets/_project_pictures/_ft_fr.jpg" width="40%">
+</a>
 
 #### Marketing Report
-[![](assets/_project_pictures/_ft_mr.jpg)](assets/_projects/_marketing_report.pdf)
+<a href="assets/_projects/_marketing_report.pdf">
+  <img src="assets/_project_pictures/_ft_mr.jpg" width="40%">
+</a>
 
 #### Marketing Video
-[![](assets/_project_pictures/_ft_mv.jpg)](https://www.youtube.com/watch?v=1A4hBhPMogE)
+<a href="https://www.youtube.com/watch?v=1A4hBhPMogE">
+  <img src="assets/_project_pictures/_ft_mv.jpg" width="40%">
+</a>
 
 #### Business Plan
 
