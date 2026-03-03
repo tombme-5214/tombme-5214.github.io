@@ -1,17 +1,16 @@
 ---
 title: "My Projects"
 ---
-## Bachelor Thesis 
+## Bachelor Thesis
 
 #### About
 
 
 #### Research Proposal
-
 [![](assets/_project_pictures/_bt_rp.jpg)](assets/_projects/_research_proposal.pdf)
 
 #### Litreature Review
-
+[![](assets/_project_pictures/_bt_lr.jpg)](assets/_projects/_literature_review.pdf)
 
 #### Methodology
 
