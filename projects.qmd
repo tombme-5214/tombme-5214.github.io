@@ -23,13 +23,16 @@ title: "My Projects"
 
 
 #### Concept Paper
-
+[![](assets/_project_pictures/_ft_cp.jpg)](assets/_projects/_concept_paper.pdf)
 
 #### Feasibility Report 
+[![](assets/_project_pictures/_ft_fr.jpg)](assets/_projects/_feasibility_report.pdf)
 
+#### Marketing Report
+[![](assets/_project_pictures/_ft_mr.jpg)](assets/_projects/_marketing_report.pdf)
 
-#### Marketing Report & Video
-
+#### Marketing Video
+[![](assets/_project_pictures/_ft_mv.jpg)](https://www.youtube.com/watch?v=1A4hBhPMogE)
 
 #### Business Plan
 
