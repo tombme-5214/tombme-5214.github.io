@@ -46,5 +46,5 @@ Spanish - Basics (A2)
 * Cooking
 * Hiking
 * Travling
-* [Djing](https://tombme-5214.github.io/fiore.html)
-* [Producing](https://tombme-5214.github.io/fiore.html)
+* Djing
+

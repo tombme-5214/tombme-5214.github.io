@@ -3,60 +3,78 @@ title: "My Projects"
 ---
 ## Bachelor Thesis
 
-#### About
+> This module focuses on independent academic research, including proposal development, literature analysis, and applied methodology.
 
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
 
-#### Research Proposal
-<a href="assets/_projects/_research_proposal.pdf">
-  <img src="assets/_project_pictures/_bt_rp.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_bt_rp.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Research Proposal →](assets/_projects/_research_proposal.pdf){.btn .btn-primary .btn-sm}
+:::
 
-#### Litreature Review
-<a href="assets/_projects/_literature_review.pdf">
-  <img src="assets/_project_pictures/_bt_lr.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_bt_lr.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Literature Review →](assets/_projects/_literature_review.pdf){.btn .btn-primary .btn-sm}
+:::
 
-#### Methodology
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_bt_m.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Coming Soon...](){.btn .btn-primary .btn-sm}
+:::
 
+</div>
 
-> *Commming Soon...*
+---
 
 ## New Enterprise Development 
 
-#### About
+> This module explores the creation and evaluation of new business ventures, from idea development to market strategy and execution.
 
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
 
-#### Concept Paper
-<a href="assets/_projects/_concept_paper.pdf">
-  <img src="assets/_project_pictures/_ft_cp.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_cp.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Concept Paper →](assets/_projects/_concept_paper.pdf){.btn .btn-primary .btn-sm}
+:::
 
-#### Feasibility Report 
-<a href="assets/_projects/_feasibility_report.pdf">
-  <img src="assets/_project_pictures/_ft_fr.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_fr.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Feasibility Report →](assets/_projects/_feasibility_report.pdf){.btn .btn-primary .btn-sm}
+:::
 
-#### Marketing Report
-<a href="assets/_projects/_marketing_report.pdf">
-  <img src="assets/_project_pictures/_ft_mr.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_mr.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Marketing Report →](assets/_projects/_marketing_report.pdf){.btn .btn-primary .btn-sm}
+:::
 
-#### Marketing Video
-<a href="https://www.youtube.com/watch?v=1A4hBhPMogE">
-  <img src="assets/_project_pictures/_ft_mv.jpg" width="40%">
-</a>
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_mv.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Marketing Video →](https://www.youtube.com/watch?v=1A4hBhPMogE){.btn .btn-primary .btn-sm}
+:::
 
-#### Business Plan
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_dpd.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Coming Soon...](){.btn .btn-primary .btn-sm}
+:::
 
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ft_bp.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Coming Soon...](){.btn .btn-primary .btn-sm}
+:::
 
-> *Commming Soon...*
+</div>
+
+---
 
 ## Machine Learning & Advanced Python 
 
-#### About 
+> This module covers machine learning techniques and advanced Python applications for data analysis and predictive modeling.
 
+<div style="display:grid; grid-template-columns: 1fr; gap:20px; max-width:320px;">
 
-#### Using Classification Algorithms in Heart Disease Prediction 
+::: {.card style="padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-align:center;"}
+![](assets/_project_pictures/_ml_ca.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Coming Soon...](){.btn .btn-primary .btn-sm}
+:::
 
-
-> *Commming Soon...*
+</div>

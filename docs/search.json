@@ -18,7 +18,7 @@
     "href": "projects.html",
     "title": "My Projects",
     "section": "",
-    "text": "Commming Soon…"
+    "text": "This module focuses on independent academic research, including proposal development, literature analysis, and applied methodology.\n\n\n\n Research Proposal →\n\n\n Literature Review →\n\n\n Coming Soon…"
   },
   {
     "objectID": "about.html",
@@ -46,7 +46,7 @@
     "href": "about.html#hobbies",
     "title": "About",
     "section": "Hobbies",
-    "text": "Hobbies\n\nFitness\nCooking\nHiking\nTravling\nDjing\nProducing"
+    "text": "Hobbies\n\nFitness\nCooking\nHiking\nTravling\nDjing"
   },
   {
     "objectID": "projects.html#about-1",
@@ -102,21 +102,21 @@
     "href": "projects.html#bachelor-thesis",
     "title": "My Projects",
     "section": "",
-    "text": "Commming Soon…"
+    "text": "This module focuses on independent academic research, including proposal development, literature analysis, and applied methodology.\n\n\n\n Research Proposal →\n\n\n Literature Review →\n\n\n Coming Soon…"
   },
   {
     "objectID": "projects.html#new-enterprise-development",
     "href": "projects.html#new-enterprise-development",
     "title": "My Projects",
     "section": "New Enterprise Development",
-    "text": "New Enterprise Development\n\nAbout\n\n\nConcept Paper\n  \n\n\nFeasibility Report\n  \n\n\nMarketing Report\n  \n\n\nMarketing Video\n  \n\n\nBusiness Plan\n\nCommming Soon…"
+    "text": "New Enterprise Development\n\nThis module explores the creation and evaluation of new business ventures, from idea development to market strategy and execution.\n\n\n\n Concept Paper →\n\n\n Feasibility Report →\n\n\n Marketing Report →\n\n\n Marketing Video →\n\n\n Coming Soon…\n\n\n Coming Soon…"
   },
   {
     "objectID": "projects.html#machine-learning-advanced-python",
     "href": "projects.html#machine-learning-advanced-python",
     "title": "My Projects",
     "section": "Machine Learning & Advanced Python",
-    "text": "Machine Learning & Advanced Python\n\nAbout\n\n\nUsing Classification Algorithms in Heart Disease Prediction\n\nCommming Soon…"
+    "text": "Machine Learning & Advanced Python\n\nThis module covers machine learning techniques and advanced Python applications for data analysis and predictive modeling.\n\n\n\n Coming Soon…"
   },
   {
     "objectID": "projects.html#bachelor-thesis-business-project",
@@ -131,5 +131,26 @@
     "title": "About",
     "section": "",
     "text": "Academic & Professional Overview\n\n\n\n\n\nNationality\nGerman\n\n\nBased in\nDublin, Ireland\n\n\nBachelor\nInternational Management (IMX German-Irish Double Degree) @ ESB Business School & Global Business (Double Degree) @ DCU Business School\n\n\nBachelor Minor\nBusiness Analytics\n\n\nWork Experience\nWRS Energie+Druckluft GmbH (Stuttgart, Germany); Robert Bosch GmbH (Reutlingen, Germany); Click&Boat SAS (Barcelona, Spain)\n\n\nMaster\nAdmitted to CEMS MIM Program @ UCD Smurfit Business School"
+  },
+  {
+    "objectID": "projects.html#bachelor-thesis-1",
+    "href": "projects.html#bachelor-thesis-1",
+    "title": "My Projects",
+    "section": "Bachelor Thesis",
+    "text": "Bachelor Thesis\n\nAbout\nThis module focuses on independent academic research, including proposal development, literature analysis, and applied methodology.\n\n\n Research Proposal →\n\n\n Literature Review →\n\n\n\nComing Soon…"
+  },
+  {
+    "objectID": "projects.html#new-enterprise-development-1",
+    "href": "projects.html#new-enterprise-development-1",
+    "title": "My Projects",
+    "section": "New Enterprise Development",
+    "text": "New Enterprise Development\n\nAbout\nThis module explores the creation and evaluation of new business ventures, from idea development to market strategy and execution.\n\n\n Concept Paper →\n\n\n Feasibility Report →\n\n\n Marketing Report →\n\n\n Marketing Video →\n\n\n\nComing Soon…\n\n\n\n\nComing Soon…"
+  },
+  {
+    "objectID": "projects.html#machine-learning-advanced-python-1",
+    "href": "projects.html#machine-learning-advanced-python-1",
+    "title": "My Projects",
+    "section": "Machine Learning & Advanced Python",
+    "text": "Machine Learning & Advanced Python\n\nAbout\nThis module covers machine learning techniques and advanced Python applications for data analysis and predictive modeling.\n\n\n\nComing Soon…"
   }
 ]
