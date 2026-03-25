@@ -2,49 +2,82 @@
 title: "About"
 ---
 
-| Academic & Professional Overview ||
-|-------|-------|
-| Nationality | German |
-| Based in | Dublin, Ireland |
-| Bachelor | International Management (Double Degree) @ ESB Global Business (Double Degree) @ DCU |
-| Bachelor Minor | Business Analytics |
-| Work Experience | WRS Energie+Druckluft GmbH (Stuttgart, Germany) Robert Bosch GmbH (Reutlingen, Germany) Click&Boat SAS (Barcelona, Spain) |
-| Master | Admitted to CEMS MIM Program @ UCD Smurfit Business School |
+# Tom Blume
+**Bsc. International Management Graduate · CEMS MIM Candidate**  
+(Pin) Dublin · (German Flag) Nationality
 
-## Biography
-*Tom Blume was born in 2003 and grew up in Frankfurt (Oder), Germany. He completed his Abitur in 2022 at Karl-Liebknecht-Gymnasium with a final grade of 1.4, specialising in Mathematics and Biology. During high school, he spent a year abroad in Cle Elum, Washington State (USA), before returning to Germany due to the COVID-19 pandemic.*
+> *Currently seeking a summer internship (Jun.-Aug., 2026) in Berlin to complement the upcoming CEMS MIM programme.*
 
-*After graduating, he began a German-Irish Double Degree in International Management (IMX) at ESB Business School and Dublin City University (DCU). During his second semester, he worked as a Founder’s Associate (Working Student) at WRS Energie + Druckluft GmbH in Stuttgart, supporting CRM and sales operations, before completing his first mandatory internship in his third semester at Robert Bosch GmbH in the field of Commercial Management.*
+---
 
-*The fifth semester marked his move to Dublin for the second half of his degree, where he gained first-hand experience of the Irish culture and joined the Global Business Society’s Communications Team, later taking on broader leadership responsibilities within the student community. His sixth semester he wokred as a Junior Sales Agent Intern at Click&Boat in Barcelona, where he exceeded sales targets and managed both DACH and English-speaking markets. In the final year of his Bachelor’s (7th & 8th semester), he pursued a Minor in Business Analytics and completed his thesis on “What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?”, while simultaneously serving as Class Representative and President of the Global Business Society at DCU.*
+## About
 
-*Currently, Tom is seeking an internship in Berlin for the upcoming summer to further deepen his practical experience. From September 2026, he will begin the CEMS Master in International Management at UCD Business School, with expected graduation in Summer 2027.*
+I am a German-Irish Double Degree graduate in International Management with a minor in Business Analytics, having studied at ESB Business School in Reutlingen and Dublin City University (DCU). My academic journey has taken me across three countries (Germany, Ireland, and Spain) giving me a genuinely international perspective and the ability to work effectively across cultures and languages.
 
-## My Skills
-### Languages 
-German - Mothertough (C2)
+Throughout my degree, I have combined academic rigour with hands-on commercial experience, from supporting sales operations at a growth-stage energy start-up in Stuttgart, to a Commercial Management internship at Robert Bosch, to exceeding sales targets in both DACH and English-speaking markets at Click&Boat in Barcelona. My bachelor's thesis explored the strategic feasibility of AI-driven sales forecasting in SMEs, reflecting a genuine interest in the intersection of business strategy and data-driven decision-making.
 
-English - Business Fluent (C1 - 7.5 IELTS Score)
+Beyond the classroom, I served as President of the Global Business Society at DCU and as Class Representative, roles that sharpened my ability to lead, communicate, and take initiative. I am currently seeking a summer internship in Berlin before beginning the CEMS Master in International Management at UCD Smurfit Business School in September 2026.
 
-Spanish - Basics (A2)
+---
 
-### IT Skills
-* MS Software
-    + Excel
-    + Powerpoint
-    + Word
-    + PowerBI
-* SQL
-* Python
-* Quarto
-    + YAML
-    + Markdown
-* Machine Learning
+## Education
 
-## Hobbies  
-* Fitness 
-* Cooking
-* Hiking
-* Travling
-* Djing
+**CEMS Master in International Management (MIM)**  
+UCD Smurfit Business School, Dublin, Ireland  
+*Commencing September 2026 · Expected Graduation Summer 2027*
+
+**Bachelor of Arts – International Management (Double Degree)**  
+ESB Business School, Reutlingen, Germany & Dublin City University (DCU), Ireland  
+*Minor in Business Analytics*  
+Thesis: *"What organisational and strategic factors influence the feasibility of implementing AI-driven sales forecasting tools in SMEs?"*
+
+**Abitur**  
+Karl-Liebknecht-Gymnasium, Frankfurt (Oder), Germany  
+*Final Grade: 1.4 · Specialisation: Mathematics & Biology*  
+*Year Abroad: Cle Elum, Washington State, USA*
+
+---
+
+## Professional Experience
+
+**Junior Sales Agent Intern**  
+Click&Boat SAS · Barcelona, Spain  
+
+**Internship – Commercial Management**  
+Robert Bosch GmbH · Reutlingen, Germany  
+
+**Founder's Associate (Working Student)**  
+WRS Energie + Druckluft GmbH · Stuttgart, Germany  
+
+---
+
+## Leadership & Extracurricular Activities
+
+**President** · Global Business Society, DCU  
+**Class Representative** · DCU  
+**Communications Team Member** · Global Business Society, DCU
+
+---
+
+## Skills
+
+### Languages
+| Language | Level |
+|----------|-------|
+| German | Native (C2) |
+| English | Business Fluent (C1 · IELTS 7.5) |
+| Spanish | Basic (A2) |
+
+### Technical Skills
+**Microsoft Office Suite** – Excel, PowerPoint, Word, Power BI  
+**Data & Programming** – Python, SQL  
+**Reporting & Documentation** – Quarto (YAML, Markdown)  
+**Data Science** – Machine Learning fundamentals
+
+---
+
+## Interests
+Fitness · Cooking · Hiking · Travel · DJing
+
+
 
