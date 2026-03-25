@@ -1,6 +1,106 @@
 /*-- scss:defaults --*/
 
+// Import Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap');
+
+/* Brand / logo */
 .navbar-brand img { 
   max-height: 55px;
   width: auto;
+}
+
+/* ===== COLOR SYSTEM ===== */
+$primary: #00a2ff;
+$secondary: #00bfff;
+$accent: #00a2ff;
+
+$body-bg: #ffffff;
+$body-color: #130d4d;
+
+/* Links */
+$link-color: $accent;
+$link-hover-color: darken($accent, 10%);
+
+/* ===== TYPOGRAPHY ===== */
+$font-family-sans-serif: "Barlow";
+$headings-font-family: "Barlow";
+
+$font-size-base: 1rem;
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.5rem;
+
+/* ===== NAVBAR ===== */
+$navbar-bg: #9ee6f6;
+$navbar-fg: #130d4d;
+$navbar-hl: $accent;
+
+/* ===== BUTTONS ===== */
+$btn-border-radius: 5px;
+
+/*-- scss:rules --*/
+
+/* ===== NAVBAR CUSTOM ===== */
+.navbar {
+  background-color: $navbar-bg;
+  font-size: 1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.navbar a {
+  color: $navbar-fg !important;
+}
+
+.navbar a:hover {
+  color: $navbar-hl !important;
+}
+
+/* Active link */
+.navbar .nav-link.active {
+  font-weight: 500;
+  border-bottom: 2px solid $navbar-hl;
+}
+
+/* ===== BODY / LAYOUT ===== */
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.7;
+}
+
+/* Center content */
+main {
+  max-width: 950px;
+  margin: auto;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3 {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== TABLES ===== */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ===== BLOCKQUOTE ===== */
+blockquote {
+    color: #89a2ae;
+    border-left: 5px solid #00a2ff;
+    padding-left: 25px; /* Abstand zwischen Linie und Text */
+    padding: 6px; /* Innenabstand allgemein */
+    margin: 12.5px 0; /* Abstand nach oben/unten */
 }

@@ -18,11 +18,10 @@ website:
 
 format:
   html:
-    theme: 
-      - cosmo
-      - styles.scss
+    theme:
+    - styles.scss
     toc: true
     page-layout: full
-
+  
 
 
