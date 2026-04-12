@@ -19,7 +19,7 @@ $code-accent:     #2563EB;   // keywords in syntax
 // Surfaces & whites
 $white:           #FFFFFF;   // navbar text, cards
 $surface:         #F5F8FC;   // page background
-$code-bg:         #EFF4FB;   // code block fill
+$code-bg:         #eff4fb93;   // code block fill
 
 // Grays (all blue-tinted)
 $border:          #E2EAF4;   // dividers, table borders
@@ -122,26 +122,24 @@ blockquote {
 
 // Code blocks
 pre.sourceCode {
-  background-color: $code-bg;
-  border-left: 4px solid $primary;
-  border-radius: 0 6px 6px 0;
-  border: 1px solid $border;
+  border-left: 3px solid $primary;
+  border-radius: px;
   max-width: 9in;
   overflow-x: auto;
   padding: 1rem;
-  font-size: 0.85rem;          // ← was 12px; em-relative is safer
+  font-size: 14px; 
 }
 
 // General code element
 code {
   color: $text;
-  font-size: 0.875em;          // ← was 8px — far too small, fixed
-}
+  font-size: 14px;
+  }
 
 // Inline code  (inside paragraphs and lists)
 p code, li code {
   background-color: $code-bg;
-  border: 1px solid $border;
+  border: 1px solid $muted;
   border-radius: 4px;
   padding: 0.15rem 0.4rem;
   color: $text-secondary;
@@ -150,7 +148,7 @@ p code, li code {
 
 // Syntax highlighting  — each token type gets a distinct role
 code span.st { color: $accent; }          // Strings    'text'
-code span.co { color: $muted; }           // Comments   # note
+code span.co { color: $primary-dark; }    // Comments   # note
 code span.kw { color: $code-accent; }     // Keywords   import, def
 code span.bu { color: $primary-light; }   // Built-ins  print, len
 code span.fu { color: $primary; }         // Functions  fit(), run()
