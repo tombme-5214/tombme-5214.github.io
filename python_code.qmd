@@ -1,6 +1,264 @@
 ---
-title: "My ML Python Code"
+title: "Machine Learning Python Code"
 ---
+## About
+The graphics displayed are the evaluation results of the full and simplified heart disease datasets. The code below was used to produce them for the assignment: 
+"**Evaluating Machine Learning Classification Algorithms for Heart Disease Prediction:** *Performance on Full and Reduced Clinical Datasets*"
+
+## Evaluation Results
+
+```{python}
+#| eval: true
+#| echo: false
+# SECTION 1 — IMPORTS
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.preprocessing import LabelEncoder, OrdinalEncoder, StandardScaler
+from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
+from sklearn.metrics import (accuracy_score, precision_score, recall_score,
+                             f1_score, confusion_matrix, ConfusionMatrixDisplay)
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+# SECTION 2 — DATASET AND DATA PREPARATION
+
+# --- Load Dataset ---
+df = pd.read_csv('assets/_projects/heart_disease_dataset.csv',
+                 sep=';',
+                 keep_default_na=False)
+
+```
+
+### Shape of Dataset
+
+```{python}
+#| eval: true
+#| echo: false
+print(df.shape)
+```
+
+### Missing Values in Dataset
+
+```{python}
+#| eval: true
+#| echo: false
+print(df.isnull().sum())
+```
+
+### Datatype of Dataset
+
+```{python}
+#| eval: true
+#| echo: false
+print(df.dtypes)
+
+# --- Define Features & Target ---
+X = df.drop(columns=['Heart Disease'])
+y = df['Heart Disease']
+
+# --- Encode Binary Variables (0/1) ---
+binary_cols = ['Gender', 'Family History', 'Diabetes', 'Obesity', 'Exercise Induced Angina']
+le = LabelEncoder()
+for col in binary_cols:
+    X[col] = le.fit_transform(X[col])
+
+# --- Encode Ordinal Variables (preserve order) ---
+oe_smoking = OrdinalEncoder(categories=[['Never', 'Former', 'Current']])
+X[['Smoking']] = oe_smoking.fit_transform(X[['Smoking']])
+
+oe_alcohol = OrdinalEncoder(categories=[['None', 'Moderate', 'Heavy']])
+X[['Alcohol Intake']] = oe_alcohol.fit_transform(X[['Alcohol Intake']])
+
+# Stress Level is already numeric (1–10) — no encoding needed
+
+# --- Encode Categorical Variables (one-hot) ---
+X = pd.get_dummies(X, columns=['Chest Pain Type'])
+
+# --- Clean up dtypes ---
+chest_pain_cols = ['Chest Pain Type_Asymptomatic', 'Chest Pain Type_Atypical Angina',
+                   'Chest Pain Type_Non-anginal Pain', 'Chest Pain Type_Typical Angina']
+X[chest_pain_cols]    = X[chest_pain_cols].astype(int)
+X['Smoking']          = X['Smoking'].astype(int)
+X['Alcohol Intake']   = X['Alcohol Intake'].astype(int)
+
+# --- Full Dataset: Train-Test Split & Standardisation ---
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+numerical_cols = ['Age', 'Cholesterol', 'Blood Pressure', 'Heart Rate',
+                  'Exercise Hours', 'Blood Sugar']
+
+scaler = StandardScaler()
+X_train[numerical_cols] = scaler.fit_transform(X_train[numerical_cols])
+X_test[numerical_cols]  = scaler.transform(X_test[numerical_cols])
+
+# --- Simplified Dataset: Remove features requiring professional equipment ---
+cols_to_drop = ['Cholesterol', 'Blood Sugar', 'Diabetes',
+                'Exercise Induced Angina',
+                'Chest Pain Type_Asymptomatic',
+                'Chest Pain Type_Atypical Angina',
+                'Chest Pain Type_Non-anginal Pain',
+                'Chest Pain Type_Typical Angina']
+
+X_simple = X.drop(columns=cols_to_drop)
+numerical_simple = ['Age', 'Blood Pressure', 'Heart Rate', 'Exercise Hours']
+
+X_train_s, X_test_s, y_train_s, y_test_s = train_test_split(
+    X_simple, y, test_size=0.2, random_state=42, stratify=y
+)
+
+scaler_s = StandardScaler()
+X_train_s[numerical_simple] = scaler_s.fit_transform(X_train_s[numerical_simple])
+X_test_s[numerical_simple]  = scaler_s.transform(X_test_s[numerical_simple])
+
+# SECTION 3 — CLASSIFICATION ALGORITHMS & EVALUATION
+
+# --- Define Models ---
+models = {
+    'NB':  GaussianNB(),
+    'KNN': KNeighborsClassifier(n_neighbors=5, metric='euclidean'),
+    'DT':  DecisionTreeClassifier(max_depth=5, min_samples_split=10, random_state=42),
+    'RF':  RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42),
+}
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+# --- Evaluation Function ---
+def evaluate(models, X_tr, X_te, y_tr, y_te, cv):
+    results = {}
+    for name, model in models.items():
+        cv_scores = cross_val_score(model, X_tr, y_tr, cv=cv, scoring='accuracy')
+        model.fit(X_tr, y_tr)
+        y_pred = model.predict(X_te)
+        tn, fp, fn, tp = confusion_matrix(y_te, y_pred).ravel()
+        results[name] = {
+            'CV Accuracy': round(cv_scores.mean(), 4),
+            'CV Accuracy SD': round(cv_scores.std(), 4),
+            'Accuracy':    round(accuracy_score(y_te, y_pred), 4),
+            'Precision':   round(precision_score(y_te, y_pred), 4),
+            'Recall':      round(recall_score(y_te, y_pred), 4),
+            'Specificity': round(tn / (tn + fp), 4),
+            'F1-Score':    round(f1_score(y_te, y_pred), 4),
+        }
+    return pd.DataFrame(results).T
+
+# --- Run Evaluation ---
+results_full_df   = evaluate(models, X_train,   X_test,   y_train,   y_test,   cv)
+results_simple_df = evaluate(
+    {name: type(m)(**m.get_params()) for name, m in models.items()},
+    X_train_s, X_test_s, y_train_s, y_test_s, cv
+)
+
+```
+
+### Results Full Dataset
+
+```{python}
+#| eval: true
+#| echo: false
+print(results_full_df)
+```
+
+### Results Full Dataset
+
+```{python}
+#| eval: true
+#| echo: false
+print(results_simple_df)
+
+```
+
+### Confusion Matrix
+
+```{python}
+#| eval: true
+#| echo: false
+# SECTION 4 — EVALUATION GRAPHICS
+
+# --- Retrain models for plotting ---
+trained_full, trained_simple = {}, {}
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    trained_full[name] = model
+    model_s = type(model)(**model.get_params())
+    model_s.fit(X_train_s, y_train_s)
+    trained_simple[name] = model_s
+
+# --- Graphic 1: Confusion Matrices ---
+fig, axes = plt.subplots(2, 4, figsize=(20, 9))
+fig.suptitle('Confusion Matrices — Full (top) vs Simplified (bottom)', fontsize=14, fontweight='bold')
+for idx, name in enumerate(models.keys()):
+    ConfusionMatrixDisplay.from_estimator(trained_full[name],   X_test,   y_test,   ax=axes[0, idx])
+    ConfusionMatrixDisplay.from_estimator(trained_simple[name], X_test_s, y_test_s, ax=axes[1, idx])
+    axes[0, idx].set_title(f'{name} (Full)')
+    axes[1, idx].set_title(f'{name} (Simplified)')
+plt.tight_layout()
+plt.savefig('confusion_matrices.png', dpi=150)
+plt.show()
+```
+
+### ML Model Performance per Dataset Comparison
+
+```{python}
+#| eval: true
+#| echo: false
+# --- Graphic 2: Metrics Comparison (per dataset) ---
+metrics      = ['CV Accuracy', 'Accuracy', 'Precision', 'Recall', 'Specificity', 'F1-Score']
+model_names  = list(models.keys())
+x, width     = np.arange(len(metrics)), 0.2
+
+fig, axes = plt.subplots(1, 2, figsize=(18, 6))
+fig.suptitle('Model Performance Comparison', fontsize=14, fontweight='bold')
+for i, name in enumerate(model_names):
+    axes[0].bar(x + i * width, [results_full_df.loc[name, m]   for m in metrics], width, label=name)
+    axes[1].bar(x + i * width, [results_simple_df.loc[name, m] for m in metrics], width, label=name)
+for ax, title in zip(axes, ['Full Dataset', 'Simplified Dataset']):
+    ax.set_title(title)
+    ax.set_xticks(x + width * 1.5)
+    ax.set_xticklabels(metrics, rotation=15)
+    ax.set_ylim(0.7, 1.05)
+    ax.set_ylabel('Score')
+    ax.legend()
+    ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
+plt.tight_layout()
+plt.savefig('metrics_comparison.png', dpi=150)
+plt.show()
+```
+
+### Dataset Performance per ML Model Comparison
+
+```{python}
+#| eval: true
+#| echo: false
+# --- Graphic 3: Full vs Simplified per Model ---
+fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+fig.suptitle('Full vs Simplified Dataset — Model Performance Comparison', fontsize=14, fontweight='bold')
+width = 0.35
+for idx, name in enumerate(model_names):
+    ax = axes[idx // 2, idx % 2]
+    ax.bar(x - width/2, [results_full_df.loc[name, m]   for m in metrics], width, label='Full',       color='steelblue')
+    ax.bar(x + width/2, [results_simple_df.loc[name, m] for m in metrics], width, label='Simplified', color='coral')
+    ax.set_title(name, fontsize=13, fontweight='bold')
+    ax.set_xticks(x)
+    ax.set_xticklabels(metrics, rotation=15)
+    ax.set_ylim(0.7, 1.05)
+    ax.set_ylabel('Score')
+    ax.legend()
+    ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
+plt.tight_layout()
+plt.savefig('full_vs_simplified.png', dpi=150)
+plt.show()
+```
+
+## The Code
+### 1. Imports
+*All libraries imported at the top of the file to avoid duplication and ensure a clear dependency overview.*
 
 ```python
 # SECTION 1 — IMPORTS
@@ -18,6 +276,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 ```
+
+### 2. Dataset and Data Preparation
+*Loads the CSV, encodes binary/ordinal/categorical variables, performs 80–20 train-test split, standardises numerical features, and creates the simplified dataset by removing the five clinically restricted attributes.*
 
 ```python
 # SECTION 2 — DATASET AND DATA PREPARATION
@@ -91,6 +352,8 @@ scaler_s = StandardScaler()
 X_train_s[numerical_simple] = scaler_s.fit_transform(X_train_s[numerical_simple])
 X_test_s[numerical_simple]  = scaler_s.transform(X_test_s[numerical_simple])
 ```
+### 3. Classification Algorithms and Evaluation
+*Defines NB, KNN, DT, and RF with their tuning parameters. Applies 5-fold stratified CV and computes all six evaluation metrics for both the full and simplified datasets.*
 
 ```python
 # SECTION 3 — CLASSIFICATION ALGORITHMS & EVALUATION
@@ -136,6 +399,8 @@ print(results_full_df)
 print("\n=== SIMPLIFIED DATASET ===")
 print(results_simple_df)
 ```
+### 4. Evaluation Graphics
+*Generates three figures: confusion matrices (full vs simplified), grouped metrics bar charts per dataset, and side-by-side full vs simplified comparison per model.*
 
 ```python
 # SECTION 4 — EVALUATION GRAPHICS
@@ -202,4 +467,3 @@ plt.tight_layout()
 plt.savefig('full_vs_simplified.png', dpi=150)
 plt.show()
 ```
-

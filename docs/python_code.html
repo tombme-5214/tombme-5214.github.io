@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My ML Python Code</title>
+<title>Machine Learning Python Code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,20 +153,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#evaluation-results" id="toc-evaluation-results" class="nav-link" data-scroll-target="#evaluation-results">Evaluation Results</a>
+  <ul class="collapse">
+  <li><a href="#shape-of-dataset" id="toc-shape-of-dataset" class="nav-link" data-scroll-target="#shape-of-dataset">Shape of Dataset</a></li>
+  <li><a href="#missing-values-in-dataset" id="toc-missing-values-in-dataset" class="nav-link" data-scroll-target="#missing-values-in-dataset">Missing Values in Dataset</a></li>
+  <li><a href="#datatype-of-dataset" id="toc-datatype-of-dataset" class="nav-link" data-scroll-target="#datatype-of-dataset">Datatype of Dataset</a></li>
+  <li><a href="#results-full-dataset" id="toc-results-full-dataset" class="nav-link" data-scroll-target="#results-full-dataset">Results Full Dataset</a></li>
+  <li><a href="#results-full-dataset-1" id="toc-results-full-dataset-1" class="nav-link" data-scroll-target="#results-full-dataset-1">Results Full Dataset</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  <li><a href="#ml-model-performance-per-dataset-comparison" id="toc-ml-model-performance-per-dataset-comparison" class="nav-link" data-scroll-target="#ml-model-performance-per-dataset-comparison">ML Model Performance per Dataset Comparison</a></li>
+  <li><a href="#dataset-performance-per-ml-model-comparison" id="toc-dataset-performance-per-ml-model-comparison" class="nav-link" data-scroll-target="#dataset-performance-per-ml-model-comparison">Dataset Performance per ML Model Comparison</a></li>
+  </ul></li>
+  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The Code</a>
+  <ul class="collapse">
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">1. Imports</a></li>
+  <li><a href="#dataset-and-data-preparation" id="toc-dataset-and-data-preparation" class="nav-link" data-scroll-target="#dataset-and-data-preparation">2. Dataset and Data Preparation</a></li>
+  <li><a href="#classification-algorithms-and-evaluation" id="toc-classification-algorithms-and-evaluation" class="nav-link" data-scroll-target="#classification-algorithms-and-evaluation">3. Classification Algorithms and Evaluation</a></li>
+  <li><a href="#evaluation-graphics" id="toc-evaluation-graphics" class="nav-link" data-scroll-target="#evaluation-graphics">4. Evaluation Graphics</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My ML Python Code</h1>
+<h1 class="title">Machine Learning Python Code</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -178,197 +202,351 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 1 — IMPORTS</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder, OrdinalEncoder, StandardScaler</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score, StratifiedKFold</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (accuracy_score, precision_score, recall_score,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                             f1_score, confusion_matrix, ConfusionMatrixDisplay)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 2 — DATASET AND DATA PREPARATION</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load Dataset ---</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'/Users/tom.bme/Projects/heart_disease_dataset.csv'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">';'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                 keep_default_na<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Define Features &amp; Target ---</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Heart Disease'</span>])</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Heart Disease'</span>]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Binary Variables (0/1) ---</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>binary_cols <span class="op">=</span> [<span class="st">'Gender'</span>, <span class="st">'Family History'</span>, <span class="st">'Diabetes'</span>, <span class="st">'Obesity'</span>, <span class="st">'Exercise Induced Angina'</span>]</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> LabelEncoder()</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> binary_cols:</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    X[col] <span class="op">=</span> le.fit_transform(X[col])</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Ordinal Variables (preserve order) ---</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>oe_smoking <span class="op">=</span> OrdinalEncoder(categories<span class="op">=</span>[[<span class="st">'Never'</span>, <span class="st">'Former'</span>, <span class="st">'Current'</span>]])</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>X[[<span class="st">'Smoking'</span>]] <span class="op">=</span> oe_smoking.fit_transform(X[[<span class="st">'Smoking'</span>]])</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>oe_alcohol <span class="op">=</span> OrdinalEncoder(categories<span class="op">=</span>[[<span class="st">'None'</span>, <span class="st">'Moderate'</span>, <span class="st">'Heavy'</span>]])</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>X[[<span class="st">'Alcohol Intake'</span>]] <span class="op">=</span> oe_alcohol.fit_transform(X[[<span class="st">'Alcohol Intake'</span>]])</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Stress Level is already numeric (1–10) — no encoding needed</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Categorical Variables (one-hot) ---</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(X, columns<span class="op">=</span>[<span class="st">'Chest Pain Type'</span>])</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Clean up dtypes ---</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>chest_pain_cols <span class="op">=</span> [<span class="st">'Chest Pain Type_Asymptomatic'</span>, <span class="st">'Chest Pain Type_Atypical Angina'</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'Chest Pain Type_Non-anginal Pain'</span>, <span class="st">'Chest Pain Type_Typical Angina'</span>]</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>X[chest_pain_cols]    <span class="op">=</span> X[chest_pain_cols].astype(<span class="bu">int</span>)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>X[<span class="st">'Smoking'</span>]          <span class="op">=</span> X[<span class="st">'Smoking'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>X[<span class="st">'Alcohol Intake'</span>]   <span class="op">=</span> X[<span class="st">'Alcohol Intake'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Full Dataset: Train-Test Split &amp; Standardisation ---</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> [<span class="st">'Age'</span>, <span class="st">'Cholesterol'</span>, <span class="st">'Blood Pressure'</span>, <span class="st">'Heart Rate'</span>,</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'Exercise Hours'</span>, <span class="st">'Blood Sugar'</span>]</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>X_train[numerical_cols] <span class="op">=</span> scaler.fit_transform(X_train[numerical_cols])</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>X_test[numerical_cols]  <span class="op">=</span> scaler.transform(X_test[numerical_cols])</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Simplified Dataset: Remove features requiring professional equipment ---</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>cols_to_drop <span class="op">=</span> [<span class="st">'Cholesterol'</span>, <span class="st">'Blood Sugar'</span>, <span class="st">'Diabetes'</span>,</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Exercise Induced Angina'</span>,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Asymptomatic'</span>,</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Atypical Angina'</span>,</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Non-anginal Pain'</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Typical Angina'</span>]</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>X_simple <span class="op">=</span> X.drop(columns<span class="op">=</span>cols_to_drop)</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>numerical_simple <span class="op">=</span> [<span class="st">'Age'</span>, <span class="st">'Blood Pressure'</span>, <span class="st">'Heart Rate'</span>, <span class="st">'Exercise Hours'</span>]</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>X_train_s, X_test_s, y_train_s, y_test_s <span class="op">=</span> train_test_split(</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    X_simple, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>scaler_s <span class="op">=</span> StandardScaler()</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>X_train_s[numerical_simple] <span class="op">=</span> scaler_s.fit_transform(X_train_s[numerical_simple])</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>X_test_s[numerical_simple]  <span class="op">=</span> scaler_s.transform(X_test_s[numerical_simple])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 3 — CLASSIFICATION ALGORITHMS &amp; EVALUATION</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Define Models ---</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'NB'</span>:  GaussianNB(),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'KNN'</span>: KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, metric<span class="op">=</span><span class="st">'euclidean'</span>),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DT'</span>:  DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">5</span>, min_samples_split<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RF'</span>:  RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>, max_depth<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Evaluation Function ---</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(models, X_tr, X_te, y_tr, y_te, cv):</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> {}</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, model <span class="kw">in</span> models.items():</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        cv_scores <span class="op">=</span> cross_val_score(model, X_tr, y_tr, cv<span class="op">=</span>cv, scoring<span class="op">=</span><span class="st">'accuracy'</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        model.fit(X_tr, y_tr)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">=</span> model.predict(X_te)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        tn, fp, fn, tp <span class="op">=</span> confusion_matrix(y_te, y_pred).ravel()</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        results[name] <span class="op">=</span> {</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">'CV Accuracy'</span>: <span class="bu">round</span>(cv_scores.mean(), <span class="dv">4</span>),</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">'CV Accuracy SD'</span>: <span class="bu">round</span>(cv_scores.std(), <span class="dv">4</span>),</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Accuracy'</span>:    <span class="bu">round</span>(accuracy_score(y_te, y_pred), <span class="dv">4</span>),</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Precision'</span>:   <span class="bu">round</span>(precision_score(y_te, y_pred), <span class="dv">4</span>),</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Recall'</span>:      <span class="bu">round</span>(recall_score(y_te, y_pred), <span class="dv">4</span>),</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Specificity'</span>: <span class="bu">round</span>(tn <span class="op">/</span> (tn <span class="op">+</span> fp), <span class="dv">4</span>),</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">'F1-Score'</span>:    <span class="bu">round</span>(f1_score(y_te, y_pred), <span class="dv">4</span>),</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(results).T</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Run Evaluation ---</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>results_full_df   <span class="op">=</span> evaluate(models, X_train,   X_test,   y_train,   y_test,   cv)</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>results_simple_df <span class="op">=</span> evaluate(</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    {name: <span class="bu">type</span>(m)(<span class="op">**</span>m.get_params()) <span class="cf">for</span> name, m <span class="kw">in</span> models.items()},</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    X_train_s, X_test_s, y_train_s, y_test_s, cv</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== FULL DATASET ==="</span>)</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_full_df)</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== SIMPLIFIED DATASET ==="</span>)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_simple_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 4 — EVALUATION GRAPHICS</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Retrain models for plotting ---</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>trained_full, trained_simple <span class="op">=</span> {}, {}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, model <span class="kw">in</span> models.items():</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    model.fit(X_train, y_train)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    trained_full[name] <span class="op">=</span> model</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    model_s <span class="op">=</span> <span class="bu">type</span>(model)(<span class="op">**</span>model.get_params())</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    model_s.fit(X_train_s, y_train_s)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    trained_simple[name] <span class="op">=</span> model_s</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 1: Confusion Matrices ---</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">9</span>))</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Confusion Matrices — Full (top) vs Simplified (bottom)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(models.keys()):</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_estimator(trained_full[name],   X_test,   y_test,   ax<span class="op">=</span>axes[<span class="dv">0</span>, idx])</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_estimator(trained_simple[name], X_test_s, y_test_s, ax<span class="op">=</span>axes[<span class="dv">1</span>, idx])</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, idx].set_title(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> (Full)'</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, idx].set_title(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> (Simplified)'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'confusion_matrices.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 2: Metrics Comparison (per dataset) ---</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>metrics      <span class="op">=</span> [<span class="st">'CV Accuracy'</span>, <span class="st">'Accuracy'</span>, <span class="st">'Precision'</span>, <span class="st">'Recall'</span>, <span class="st">'Specificity'</span>, <span class="st">'F1-Score'</span>]</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>model_names  <span class="op">=</span> <span class="bu">list</span>(models.keys())</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>x, width     <span class="op">=</span> np.arange(<span class="bu">len</span>(metrics)), <span class="fl">0.2</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">6</span>))</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Model Performance Comparison'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(model_names):</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>].bar(x <span class="op">+</span> i <span class="op">*</span> width, [results_full_df.loc[name, m]   <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span>name)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].bar(x <span class="op">+</span> i <span class="op">*</span> width, [results_simple_df.loc[name, m] <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span>name)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, title <span class="kw">in</span> <span class="bu">zip</span>(axes, [<span class="st">'Full Dataset'</span>, <span class="st">'Simplified Dataset'</span>]):</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(x <span class="op">+</span> width <span class="op">*</span> <span class="fl">1.5</span>)</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(metrics, rotation<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="fl">0.7</span>, <span class="fl">1.05</span>)</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Score'</span>)</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span><span class="fl">1.0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'metrics_comparison.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 3: Full vs Simplified per Model ---</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Full vs Simplified Dataset — Model Performance Comparison'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(model_names):</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> axes[idx <span class="op">//</span> <span class="dv">2</span>, idx <span class="op">%</span> <span class="dv">2</span>]</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    ax.bar(x <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, [results_full_df.loc[name, m]   <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span><span class="st">'Full'</span>,       color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    ax.bar(x <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, [results_simple_df.loc[name, m] <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span><span class="st">'Simplified'</span>, color<span class="op">=</span><span class="st">'coral'</span>)</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    ax.set_title(name, fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(x)</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(metrics, rotation<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="fl">0.7</span>, <span class="fl">1.05</span>)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Score'</span>)</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span><span class="fl">1.0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'full_vs_simplified.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>The graphics displayed are the evaluation results of the full and simplified heart disease datasets. The code below was used to produce them for the assignment: “<strong>Evaluating Machine Learning Classification Algorithms for Heart Disease Prediction:</strong> <em>Performance on Full and Reduced Clinical Datasets</em>”</p>
+</section>
+<section id="evaluation-results" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-results">Evaluation Results</h2>
+<section id="shape-of-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="shape-of-dataset">Shape of Dataset</h3>
+<div id="f0326735" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>(1000, 16)</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-values-in-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="missing-values-in-dataset">Missing Values in Dataset</h3>
+<div id="89faeb00" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Age                        0
+Gender                     0
+Cholesterol                0
+Blood Pressure             0
+Heart Rate                 0
+Smoking                    0
+Alcohol Intake             0
+Exercise Hours             0
+Family History             0
+Diabetes                   0
+Obesity                    0
+Stress Level               0
+Blood Sugar                0
+Exercise Induced Angina    0
+Chest Pain Type            0
+Heart Disease              0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="datatype-of-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="datatype-of-dataset">Datatype of Dataset</h3>
+<div id="bc7b5c85" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Age                         int64
+Gender                     object
+Cholesterol                 int64
+Blood Pressure              int64
+Heart Rate                  int64
+Smoking                    object
+Alcohol Intake             object
+Exercise Hours              int64
+Family History             object
+Diabetes                   object
+Obesity                    object
+Stress Level                int64
+Blood Sugar                 int64
+Exercise Induced Angina    object
+Chest Pain Type            object
+Heart Disease               int64
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="results-full-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="results-full-dataset">Results Full Dataset</h3>
+<div id="71a2fb9c" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  \
+NB        0.9075          0.0083     0.910     0.9545  0.8077       0.9754   
+KNN       0.8425          0.0199     0.875     0.8630  0.8077       0.9180   
+DT        0.9988          0.0025     1.000     1.0000  1.0000       1.0000   
+RF        0.9988          0.0025     0.990     1.0000  0.9744       1.0000   
+
+     F1-Score  
+NB     0.8750  
+KNN    0.8344  
+DT     1.0000  
+RF     0.9870  </code></pre>
+</div>
+</div>
+</section>
+<section id="results-full-dataset-1" class="level3">
+<h3 class="anchored" data-anchor-id="results-full-dataset-1">Results Full Dataset</h3>
+<div id="4307b196" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  \
+NB        0.7888          0.0272     0.835     0.7586  0.8462       0.8279   
+KNN       0.7488          0.0228     0.820     0.7838  0.7436       0.8689   
+DT        0.8138          0.0100     0.870     0.7653  0.9615       0.8115   
+RF        0.8575          0.0183     0.880     0.7647  1.0000       0.8033   
+
+     F1-Score  
+NB     0.8000  
+KNN    0.7632  
+DT     0.8523  
+RF     0.8667  </code></pre>
+</div>
+</div>
+</section>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
+<div id="d1ad3d9c" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="python_code_files/figure-html/cell-8-output-1.png" width="1898" height="855" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ml-model-performance-per-dataset-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="ml-model-performance-per-dataset-comparison">ML Model Performance per Dataset Comparison</h3>
+<div id="b59222dc" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="python_code_files/figure-html/cell-9-output-1.png" width="1717" height="568" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dataset-performance-per-ml-model-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-performance-per-ml-model-comparison">Dataset Performance per ML Model Comparison</h3>
+<div id="503b5efb" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="python_code_files/figure-html/cell-10-output-1.png" width="1525" height="1133" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-code">The Code</h2>
+<section id="imports" class="level3">
+<h3 class="anchored" data-anchor-id="imports">1. Imports</h3>
+<p><em>All libraries imported at the top of the file to avoid duplication and ensure a clear dependency overview.</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 1 — IMPORTS</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder, OrdinalEncoder, StandardScaler</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score, StratifiedKFold</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (accuracy_score, precision_score, recall_score,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                             f1_score, confusion_matrix, ConfusionMatrixDisplay)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="dataset-and-data-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-and-data-preparation">2. Dataset and Data Preparation</h3>
+<p><em>Loads the CSV, encodes binary/ordinal/categorical variables, performs 80–20 train-test split, standardises numerical features, and creates the simplified dataset by removing the five clinically restricted attributes.</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 2 — DATASET AND DATA PREPARATION</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load Dataset ---</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'/Users/tom.bme/Projects/heart_disease_dataset.csv'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">';'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                 keep_default_na<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Define Features &amp; Target ---</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Heart Disease'</span>])</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Heart Disease'</span>]</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Binary Variables (0/1) ---</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>binary_cols <span class="op">=</span> [<span class="st">'Gender'</span>, <span class="st">'Family History'</span>, <span class="st">'Diabetes'</span>, <span class="st">'Obesity'</span>, <span class="st">'Exercise Induced Angina'</span>]</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> LabelEncoder()</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> binary_cols:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    X[col] <span class="op">=</span> le.fit_transform(X[col])</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Ordinal Variables (preserve order) ---</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>oe_smoking <span class="op">=</span> OrdinalEncoder(categories<span class="op">=</span>[[<span class="st">'Never'</span>, <span class="st">'Former'</span>, <span class="st">'Current'</span>]])</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>X[[<span class="st">'Smoking'</span>]] <span class="op">=</span> oe_smoking.fit_transform(X[[<span class="st">'Smoking'</span>]])</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>oe_alcohol <span class="op">=</span> OrdinalEncoder(categories<span class="op">=</span>[[<span class="st">'None'</span>, <span class="st">'Moderate'</span>, <span class="st">'Heavy'</span>]])</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>X[[<span class="st">'Alcohol Intake'</span>]] <span class="op">=</span> oe_alcohol.fit_transform(X[[<span class="st">'Alcohol Intake'</span>]])</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Stress Level is already numeric (1–10) — no encoding needed</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Encode Categorical Variables (one-hot) ---</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(X, columns<span class="op">=</span>[<span class="st">'Chest Pain Type'</span>])</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Clean up dtypes ---</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>chest_pain_cols <span class="op">=</span> [<span class="st">'Chest Pain Type_Asymptomatic'</span>, <span class="st">'Chest Pain Type_Atypical Angina'</span>,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'Chest Pain Type_Non-anginal Pain'</span>, <span class="st">'Chest Pain Type_Typical Angina'</span>]</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>X[chest_pain_cols]    <span class="op">=</span> X[chest_pain_cols].astype(<span class="bu">int</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>X[<span class="st">'Smoking'</span>]          <span class="op">=</span> X[<span class="st">'Smoking'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>X[<span class="st">'Alcohol Intake'</span>]   <span class="op">=</span> X[<span class="st">'Alcohol Intake'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Full Dataset: Train-Test Split &amp; Standardisation ---</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> [<span class="st">'Age'</span>, <span class="st">'Cholesterol'</span>, <span class="st">'Blood Pressure'</span>, <span class="st">'Heart Rate'</span>,</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'Exercise Hours'</span>, <span class="st">'Blood Sugar'</span>]</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>X_train[numerical_cols] <span class="op">=</span> scaler.fit_transform(X_train[numerical_cols])</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>X_test[numerical_cols]  <span class="op">=</span> scaler.transform(X_test[numerical_cols])</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Simplified Dataset: Remove features requiring professional equipment ---</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>cols_to_drop <span class="op">=</span> [<span class="st">'Cholesterol'</span>, <span class="st">'Blood Sugar'</span>, <span class="st">'Diabetes'</span>,</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Exercise Induced Angina'</span>,</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Asymptomatic'</span>,</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Atypical Angina'</span>,</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Non-anginal Pain'</span>,</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Chest Pain Type_Typical Angina'</span>]</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>X_simple <span class="op">=</span> X.drop(columns<span class="op">=</span>cols_to_drop)</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>numerical_simple <span class="op">=</span> [<span class="st">'Age'</span>, <span class="st">'Blood Pressure'</span>, <span class="st">'Heart Rate'</span>, <span class="st">'Exercise Hours'</span>]</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>X_train_s, X_test_s, y_train_s, y_test_s <span class="op">=</span> train_test_split(</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    X_simple, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>scaler_s <span class="op">=</span> StandardScaler()</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>X_train_s[numerical_simple] <span class="op">=</span> scaler_s.fit_transform(X_train_s[numerical_simple])</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>X_test_s[numerical_simple]  <span class="op">=</span> scaler_s.transform(X_test_s[numerical_simple])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="classification-algorithms-and-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="classification-algorithms-and-evaluation">3. Classification Algorithms and Evaluation</h3>
+<p><em>Defines NB, KNN, DT, and RF with their tuning parameters. Applies 5-fold stratified CV and computes all six evaluation metrics for both the full and simplified datasets.</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 3 — CLASSIFICATION ALGORITHMS &amp; EVALUATION</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Define Models ---</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'NB'</span>:  GaussianNB(),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'KNN'</span>: KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, metric<span class="op">=</span><span class="st">'euclidean'</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DT'</span>:  DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">5</span>, min_samples_split<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RF'</span>:  RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>, max_depth<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Evaluation Function ---</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(models, X_tr, X_te, y_tr, y_te, cv):</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> {}</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, model <span class="kw">in</span> models.items():</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        cv_scores <span class="op">=</span> cross_val_score(model, X_tr, y_tr, cv<span class="op">=</span>cv, scoring<span class="op">=</span><span class="st">'accuracy'</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        model.fit(X_tr, y_tr)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">=</span> model.predict(X_te)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        tn, fp, fn, tp <span class="op">=</span> confusion_matrix(y_te, y_pred).ravel()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        results[name] <span class="op">=</span> {</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">'CV Accuracy'</span>: <span class="bu">round</span>(cv_scores.mean(), <span class="dv">4</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">'CV Accuracy SD'</span>: <span class="bu">round</span>(cv_scores.std(), <span class="dv">4</span>),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Accuracy'</span>:    <span class="bu">round</span>(accuracy_score(y_te, y_pred), <span class="dv">4</span>),</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Precision'</span>:   <span class="bu">round</span>(precision_score(y_te, y_pred), <span class="dv">4</span>),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Recall'</span>:      <span class="bu">round</span>(recall_score(y_te, y_pred), <span class="dv">4</span>),</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Specificity'</span>: <span class="bu">round</span>(tn <span class="op">/</span> (tn <span class="op">+</span> fp), <span class="dv">4</span>),</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">'F1-Score'</span>:    <span class="bu">round</span>(f1_score(y_te, y_pred), <span class="dv">4</span>),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(results).T</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Run Evaluation ---</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>results_full_df   <span class="op">=</span> evaluate(models, X_train,   X_test,   y_train,   y_test,   cv)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>results_simple_df <span class="op">=</span> evaluate(</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    {name: <span class="bu">type</span>(m)(<span class="op">**</span>m.get_params()) <span class="cf">for</span> name, m <span class="kw">in</span> models.items()},</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    X_train_s, X_test_s, y_train_s, y_test_s, cv</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== FULL DATASET ==="</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_full_df)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== SIMPLIFIED DATASET ==="</span>)</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_simple_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="evaluation-graphics" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation-graphics">4. Evaluation Graphics</h3>
+<p><em>Generates three figures: confusion matrices (full vs simplified), grouped metrics bar charts per dataset, and side-by-side full vs simplified comparison per model.</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SECTION 4 — EVALUATION GRAPHICS</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Retrain models for plotting ---</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>trained_full, trained_simple <span class="op">=</span> {}, {}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, model <span class="kw">in</span> models.items():</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    model.fit(X_train, y_train)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    trained_full[name] <span class="op">=</span> model</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    model_s <span class="op">=</span> <span class="bu">type</span>(model)(<span class="op">**</span>model.get_params())</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    model_s.fit(X_train_s, y_train_s)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    trained_simple[name] <span class="op">=</span> model_s</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 1: Confusion Matrices ---</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">9</span>))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Confusion Matrices — Full (top) vs Simplified (bottom)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(models.keys()):</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_estimator(trained_full[name],   X_test,   y_test,   ax<span class="op">=</span>axes[<span class="dv">0</span>, idx])</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_estimator(trained_simple[name], X_test_s, y_test_s, ax<span class="op">=</span>axes[<span class="dv">1</span>, idx])</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, idx].set_title(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> (Full)'</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, idx].set_title(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> (Simplified)'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'confusion_matrices.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 2: Metrics Comparison (per dataset) ---</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>metrics      <span class="op">=</span> [<span class="st">'CV Accuracy'</span>, <span class="st">'Accuracy'</span>, <span class="st">'Precision'</span>, <span class="st">'Recall'</span>, <span class="st">'Specificity'</span>, <span class="st">'F1-Score'</span>]</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>model_names  <span class="op">=</span> <span class="bu">list</span>(models.keys())</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>x, width     <span class="op">=</span> np.arange(<span class="bu">len</span>(metrics)), <span class="fl">0.2</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">6</span>))</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Model Performance Comparison'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(model_names):</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>].bar(x <span class="op">+</span> i <span class="op">*</span> width, [results_full_df.loc[name, m]   <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span>name)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].bar(x <span class="op">+</span> i <span class="op">*</span> width, [results_simple_df.loc[name, m] <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span>name)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, title <span class="kw">in</span> <span class="bu">zip</span>(axes, [<span class="st">'Full Dataset'</span>, <span class="st">'Simplified Dataset'</span>]):</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(x <span class="op">+</span> width <span class="op">*</span> <span class="fl">1.5</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(metrics, rotation<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="fl">0.7</span>, <span class="fl">1.05</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Score'</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span><span class="fl">1.0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'metrics_comparison.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Graphic 3: Full vs Simplified per Model ---</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Full vs Simplified Dataset — Model Performance Comparison'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(model_names):</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> axes[idx <span class="op">//</span> <span class="dv">2</span>, idx <span class="op">%</span> <span class="dv">2</span>]</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    ax.bar(x <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, [results_full_df.loc[name, m]   <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span><span class="st">'Full'</span>,       color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    ax.bar(x <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, [results_simple_df.loc[name, m] <span class="cf">for</span> m <span class="kw">in</span> metrics], width, label<span class="op">=</span><span class="st">'Simplified'</span>, color<span class="op">=</span><span class="st">'coral'</span>)</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    ax.set_title(name, fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(x)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(metrics, rotation<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="fl">0.7</span>, <span class="fl">1.05</span>)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Score'</span>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span><span class="fl">1.0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'full_vs_simplified.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
