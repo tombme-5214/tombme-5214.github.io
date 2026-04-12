@@ -1,51 +1,82 @@
 /*-- scss:defaults --*/
 
-// Import Google fonts
+/*-- FONTS --*/
+// ─────────────────────────────────────────────────────
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap');
 
-/* Brand / logo */
-.navbar-brand img { 
-  max-height: 55px;
-  width: auto;
-}
 
-/* ===== COLOR SYSTEM ===== */
-$primary: #00a2ff;
-$secondary: #00bfff;
-$accent: #00a2ff;
+/*-- COLOURS --*/
 
-$body-bg: #ffffff;
-$body-color: #130d4d;
+// Blues
+$primary-dark:    #0D3D80;   // navbar, heavy emphasis
+$primary:         #1A5FBF;   // links, borders, icons
+$primary-light:   #3B82D4;   // hover states, built-ins
+$primary-subtle:  #EBF3FC;   // blockquote bg, badges
+$accent:          #0EA5D0;   // strings, social icons
+$accent-subtle:   #E0F5FC;   // accent wash
+$code-accent:     #2563EB;   // keywords in syntax
 
-/* Links */
-$link-color: $accent;
-$link-hover-color: darken($accent, 10%);
+// Surfaces & whites
+$white:           #FFFFFF;   // navbar text, cards
+$surface:         #F5F8FC;   // page background
+$code-bg:         #EFF4FB;   // code block fill
 
-/* ===== TYPOGRAPHY ===== */
-$font-family-sans-serif: "Barlow";
-$headings-font-family: "Barlow";
+// Grays (all blue-tinted)
+$border:          #E2EAF4;   // dividers, table borders
+$muted:           #8FA8C8;   // comments, placeholders
+$text-secondary:  #4A6080;   // secondary text, operators
+$text:            #1A2B3C;   // body text
 
-$font-size-base: 1rem;
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
-$h3-font-size: 1.5rem;
 
-/* ===== NAVBAR ===== */
-$navbar-bg: #9ee6f6;
-$navbar-fg: #130d4d;
-$navbar-hl: $accent;
+// ─── Semantic mappings ─────────────────────────────
+$body-bg:         $surface;
+$body-color:      $text;
 
-/* ===== BUTTONS ===== */
+$link-color:      $primary;
+$link-hover-color: $primary-light;
+
+$navbar-bg:       $primary-dark;
+$navbar-fg:       $white;
+$navbar-hl:       $accent;
+
+/*-- TYPOGRAPHY --*/
+$font-family-sans-serif:  "Nunito", sans-serif;
+$headings-font-family:    "Sen", sans-serif;
+
+$font-size-base:  1rem;
+$h1-font-size:    2.5rem;
+$h2-font-size:    2rem;
+$h3-font-size:    1.5rem;
+
+/*-- COMPONENT DEFAULTS --*/
 $btn-border-radius: 5px;
+
 
 /*-- scss:rules --*/
 
-/* ===== NAVBAR CUSTOM ===== */
+/*-- LAYOUT --*/
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.7;
+}
+
+main {
+  max-width: 950px;
+  margin: auto;
+}
+
+
+/*-- NAVBAR --*/
 .navbar {
   background-color: $navbar-bg;
   font-size: 1rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+}
+
+.navbar-brand img {
+  max-height: 55px;
+  width: auto;
 }
 
 .navbar a {
@@ -56,32 +87,19 @@ $btn-border-radius: 5px;
   color: $navbar-hl !important;
 }
 
-/* Active link */
 .navbar .nav-link.active {
-  font-weight: 500;
+  font-weight: 600;
   border-bottom: 2px solid $navbar-hl;
 }
 
-/* ===== BODY / LAYOUT ===== */
-body {
-  background-color: $body-bg;
-  color: $body-color;
-  line-height: 1.7;
-}
 
-/* Center content */
-main {
-  max-width: 950px;
-  margin: auto;
-}
-
-/* ===== HEADINGS ===== */
+/*-- TEXT & HEADINGS --*/
 h1, h2, h3 {
   font-weight: 600;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
+  color: $primary-dark;        // headings punch darker than body
 }
 
-/* ===== LINKS ===== */
 a {
   text-decoration: none;
 }
@@ -90,51 +108,91 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== TABLES ===== */
-table {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* ===== BLOCKQUOTE ===== */
 blockquote {
-    color: #89a2ae;
-    border-left: 5px solid #00a2ff;
-    padding-left: 25px; /* Abstand zwischen Linie und Text */
-    padding: 6px; /* Innenabstand allgemein */
-    margin: 12.5px 0; /* Abstand nach oben/unten */
+  color: $text-secondary;
+  background-color: $primary-subtle;
+  border-left: 4px solid $primary;
+  border-radius: 0 6px 6px 0;  // flat left, rounded right
+  padding: 0.75rem 1.25rem;
+  margin: 1.25rem 0;
 }
 
-/* ===== CODE BLOCKS ===== */
+
+/*-- CODE --*/
+
+// Code blocks
 pre.sourceCode {
-  background-color: #f4f5f7a0;  
-  border-left: 4px solid $primary;   
-  border-radius: 6px;
+  background-color: $code-bg;
+  border-left: 4px solid $primary;
+  border-radius: 0 6px 6px 0;
+  border: 1px solid $border;
   max-width: 9in;
   overflow-x: auto;
   padding: 1rem;
-  font-size: 12px; 
+  font-size: 0.85rem;          // ← was 12px; em-relative is safer
 }
 
-/* ===== CODE ===== */
+// General code element
 code {
-  color: #130d4d;
-  font-size: 8px;
+  color: $text;
+  font-size: 0.875em;          // ← was 8px — far too small, fixed
 }
 
-/* ===== Inline code ===== */
+// Inline code  (inside paragraphs and lists)
 p code, li code {
-  background-color: #f4f5f7a0;
+  background-color: $code-bg;
+  border: 1px solid $border;
   border-radius: 4px;
   padding: 0.15rem 0.4rem;
-  color: $primary;           
+  color: $text-secondary;
+  font-size: 0.875em;
 }
 
-/* ===== Syntax highlighting ===== */
-code span.st { color: $accent; }   /* Strings        'text'        */
-code span.co { color: $primary; }   /* Comments       # text        */
-code span.kw { color: $accent; }   /* Keywords       import, def   */
-code span.bu { color: $accent; }   /* Built-ins      print, range  */
-code span.fu { color: $accent; }   /* Functions      fit, predict  */
-code span.dv { color: $accent; }   /* Numbers        42, 0.2       */
-code span.op { color: $accent; }   /* Operators      =, +, -       */
+// Syntax highlighting  — each token type gets a distinct role
+code span.st { color: $accent; }          // Strings    'text'
+code span.co { color: $muted; }           // Comments   # note
+code span.kw { color: $code-accent; }     // Keywords   import, def
+code span.bu { color: $primary-light; }   // Built-ins  print, len
+code span.fu { color: $primary; }         // Functions  fit(), run()
+code span.dv { color: $accent; }          // Numbers    42, 3.14
+code span.op { color: $text-secondary; }  // Operators  =, +, ->
+
+
+/*-- TABLES --*/
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $border;
+}
+
+thead {
+  background-color: $primary-subtle;
+  color: $primary-dark;
+}
+
+tbody tr:nth-child(even) {
+  background-color: $surface;
+}
+
+/*-- CSS CUSTOM PROPERTIES --*/
+:root {
+  --accent:        #{$accent};
+  --primary:       #{$primary};
+  --primary-dark:  #{$primary-dark};
+  --border:        #{$border};
+  --surface:       #{$surface};
+}
+
+/*-- Project card button --*/
+.btn-accent {
+  background-color: $accent;
+  border-color: $accent;
+  color: $white;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+}
