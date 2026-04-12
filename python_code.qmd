@@ -11,10 +11,10 @@ The graphics displayed are the evaluation results of the full and simplified hea
 #| eval: true
 #| echo: false
 # SECTION 1 — IMPORTS
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
@@ -24,6 +24,51 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
+
+# ── E-Profile colour palette ──────────────────────────────────────
+PALETTE = {
+    'primary_dark':  '#0D3D80',
+    'primary':       '#1A5FBF',
+    'primary_light': '#3B82D4',
+    'accent':        '#0EA5D0',
+    'accent_subtle': '#E0F5FC',
+    'surface':       '#F5F8FC',
+    'border':        '#E2EAF4',
+    'muted':         '#8FA8C8',
+    'text':          '#1A2B3C',
+    'text_secondary':'#4A6080',
+}
+
+MODEL_COLORS = [
+    PALETTE['primary_dark'],
+    PALETTE['primary'],
+    PALETTE['primary_light'],
+    PALETTE['accent'],
+]
+
+# ── Global matplotlib style ───────────────────────────────────────
+mpl.rcParams.update({
+    'font.family':        'sans-serif',
+    'font.size':          10,
+    'axes.titlesize':     10,
+    'axes.labelsize':     10,
+    'xtick.labelsize':    10,
+    'ytick.labelsize':    10,
+    'legend.fontsize':    10,
+    'figure.titlesize':   10,
+
+    'axes.facecolor':     PALETTE['surface'],
+    'figure.facecolor':   PALETTE['surface'],
+    'axes.edgecolor':     PALETTE['border'],
+    'axes.linewidth':     0.8,
+    'grid.color':         PALETTE['border'],
+    'grid.linewidth':     0.5,
+    'text.color':         PALETTE['text'],
+    'axes.labelcolor':    PALETTE['text'],
+    'xtick.color':        PALETTE['text_secondary'],
+    'ytick.color':        PALETTE['text_secondary'],
+    'axes.prop_cycle':    mpl.cycler(color=MODEL_COLORS),
+})
 
 # SECTION 2 — DATASET AND DATA PREPARATION
 
@@ -162,6 +207,7 @@ results_simple_df = evaluate(
 ```{python}
 #| eval: true
 #| echo: false
+pd.set_option('display.width', 300)
 print(results_full_df)
 ```
 
@@ -170,8 +216,22 @@ print(results_full_df)
 ```{python}
 #| eval: true
 #| echo: false
+pd.set_option('display.width', 300)
 print(results_simple_df)
 
+```
+```{python}
+#| eval: true
+#| echo: false
+# --- Retrain models for plotting ---
+trained_full, trained_simple = {}, {}
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    trained_full[name] = model
+
+    model_s = type(model)(**model.get_params())
+    model_s.fit(X_train_s, y_train_s)
+    trained_simple[name] = model_s
 ```
 
 ### Confusion Matrix
@@ -179,25 +239,29 @@ print(results_simple_df)
 ```{python}
 #| eval: true
 #| echo: false
-# SECTION 4 — EVALUATION GRAPHICS
-
-# --- Retrain models for plotting ---
-trained_full, trained_simple = {}, {}
-for name, model in models.items():
-    model.fit(X_train, y_train)
-    trained_full[name] = model
-    model_s = type(model)(**model.get_params())
-    model_s.fit(X_train_s, y_train_s)
-    trained_simple[name] = model_s
-
 # --- Graphic 1: Confusion Matrices ---
 fig, axes = plt.subplots(2, 4, figsize=(9, 5.85))
-fig.suptitle('Confusion Matrices — Full (top) vs Simplified (bottom)', fontsize=14, fontweight='bold')
+fig.suptitle('Confusion Matrices — Full (top) vs Simplified (bottom)',
+             fontsize=10, fontweight='bold', color=PALETTE['text'])
+
 for idx, name in enumerate(models.keys()):
-    ConfusionMatrixDisplay.from_estimator(trained_full[name],   X_test,   y_test,   ax=axes[0, idx])
-    ConfusionMatrixDisplay.from_estimator(trained_simple[name], X_test_s, y_test_s, ax=axes[1, idx])
-    axes[0, idx].set_title(f'{name} (Full)')
-    axes[1, idx].set_title(f'{name} (Simplified)')
+    for row, (est, Xt, yt) in enumerate([
+        (trained_full[name],   X_test,   y_test),
+        (trained_simple[name], X_test_s, y_test_s),
+    ]):
+        disp = ConfusionMatrixDisplay.from_estimator(
+            est, Xt, yt,
+            ax=axes[row, idx],
+            colorbar=False,
+            cmap=mpl.colors.LinearSegmentedColormap.from_list(
+                'bp', [PALETTE['accent_subtle'], PALETTE['primary_dark']]
+            )
+        )
+        axes[row, idx].set_title(
+            f'{name} ({"Full" if row == 0 else "Simplified"})',
+            fontsize=10, color=PALETTE['text']
+        )
+
 plt.tight_layout()
 plt.show()
 ```
@@ -208,23 +272,37 @@ plt.show()
 #| eval: true
 #| echo: false
 # --- Graphic 2: Metrics Comparison (per dataset) ---
-metrics      = ['CV Accuracy', 'Accuracy', 'Precision', 'Recall', 'Specificity', 'F1-Score']
-model_names  = list(models.keys())
-x, width     = np.arange(len(metrics)), 0.2
+metrics     = ['CV Accuracy', 'Accuracy', 'Precision', 'Recall', 'Specificity', 'F1-Score']
+model_names = list(models.keys())
+x, width    = np.arange(len(metrics)), 0.2
 
-fig, axes = plt.subplots(1, 2, figsize=(9, 3))
-fig.suptitle('Model Performance Comparison', fontsize=14, fontweight='bold')
+fig, axes = plt.subplots(1, 2, figsize=(9, 3.5))
+fig.suptitle('Model Performance Comparison',
+             fontsize=10, fontweight='bold', color=PALETTE['text'])
+
+bars = []
 for i, name in enumerate(model_names):
-    axes[0].bar(x + i * width, [results_full_df.loc[name, m]   for m in metrics], width, label=name)
-    axes[1].bar(x + i * width, [results_simple_df.loc[name, m] for m in metrics], width, label=name)
+    b0 = axes[0].bar(x + i * width,
+                     [results_full_df.loc[name, m]   for m in metrics],
+                     width, color=MODEL_COLORS[i], label=name)
+    axes[1].bar(x + i * width,
+                [results_simple_df.loc[name, m] for m in metrics],
+                width, color=MODEL_COLORS[i])
+    bars.append(b0[0])
+
 for ax, title in zip(axes, ['Full Dataset', 'Simplified Dataset']):
-    ax.set_title(title)
+    ax.set_title(title, fontsize=10, color=PALETTE['text'])
     ax.set_xticks(x + width * 1.5)
     ax.set_xticklabels(metrics, rotation=15)
     ax.set_ylim(0.7, 1.05)
     ax.set_ylabel('Score')
-    ax.legend()
-    ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
+    ax.axhline(y=1.0, color=PALETTE['muted'], linestyle='--', linewidth=0.8)
+
+# Single legend bottom-left of figure
+fig.legend(bars, model_names,
+           loc='lower left', bbox_to_anchor=(0.01, -0.08),
+           ncol=4, frameon=False, fontsize=10)
+
 plt.tight_layout()
 plt.show()
 ```
@@ -236,24 +314,37 @@ plt.show()
 #| echo: false
 # --- Graphic 3: Full vs Simplified per Model ---
 fig, axes = plt.subplots(2, 2, figsize=(9, 6.75))
-fig.suptitle('Full vs Simplified Dataset — Model Performance Comparison', fontsize=14, fontweight='bold')
+fig.suptitle('Full vs Simplified Dataset — Model Performance Comparison',
+             fontsize=10, fontweight='bold', color=PALETTE['text'])
+
 width = 0.35
+bar_full = bar_simp = None
+
 for idx, name in enumerate(model_names):
     ax = axes[idx // 2, idx % 2]
-    ax.bar(x - width/2, [results_full_df.loc[name, m]   for m in metrics], width, label='Full',       color='steelblue')
-    ax.bar(x + width/2, [results_simple_df.loc[name, m] for m in metrics], width, label='Simplified', color='coral')
-    ax.set_title(name, fontsize=13, fontweight='bold')
+    bar_full = ax.bar(x - width/2,
+                      [results_full_df.loc[name, m]   for m in metrics],
+                      width, color=PALETTE['primary'], label='Full')
+    bar_simp = ax.bar(x + width/2,
+                      [results_simple_df.loc[name, m] for m in metrics],
+                      width, color=PALETTE['accent'],  label='Simplified')
+    ax.set_title(name, fontsize=10, fontweight='bold', color=PALETTE['text'])
     ax.set_xticks(x)
     ax.set_xticklabels(metrics, rotation=15)
     ax.set_ylim(0.7, 1.05)
     ax.set_ylabel('Score')
-    ax.legend()
-    ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
+    ax.axhline(y=1.0, color=PALETTE['muted'], linestyle='--', linewidth=0.8)
+
+# Single legend bottom-left of figure
+fig.legend([bar_full, bar_simp], ['Full', 'Simplified'],
+           loc='lower left', bbox_to_anchor=(0.01, -0.04),
+           ncol=2, frameon=False, fontsize=10)
+
 plt.tight_layout()
 plt.show()
 ```
 
-## The Code
+## The Original Code
 ### 1. Imports
 *All libraries imported at the top of the file to avoid duplication and ensure a clear dependency overview.*
 

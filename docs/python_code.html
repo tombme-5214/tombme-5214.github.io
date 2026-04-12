@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c26c2892bfd41f90e865eb2e99a79fdd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9437111b727becff2efae7df6c5cf49f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ml-model-performance-per-dataset-comparison" id="toc-ml-model-performance-per-dataset-comparison" class="nav-link" data-scroll-target="#ml-model-performance-per-dataset-comparison">ML Model Performance per Dataset Comparison</a></li>
   <li><a href="#dataset-performance-per-ml-model-comparison" id="toc-dataset-performance-per-ml-model-comparison" class="nav-link" data-scroll-target="#dataset-performance-per-ml-model-comparison">Dataset Performance per ML Model Comparison</a></li>
   </ul></li>
-  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The Code</a>
+  <li><a href="#the-original-code" id="toc-the-original-code" class="nav-link" data-scroll-target="#the-original-code">The Original Code</a>
   <ul class="collapse">
   <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">1. Imports</a></li>
   <li><a href="#dataset-and-data-preparation" id="toc-dataset-and-data-preparation" class="nav-link" data-scroll-target="#dataset-and-data-preparation">2. Dataset and Data Preparation</a></li>
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="evaluation-results">Evaluation Results</h2>
 <section id="shape-of-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="shape-of-dataset">Shape of Dataset</h3>
-<div id="c46a628d" class="cell" data-execution_count="2">
+<div id="9b30be58" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>(1000, 16)</code></pre>
 </div>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="missing-values-in-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="missing-values-in-dataset">Missing Values in Dataset</h3>
-<div id="fc3c6e26" class="cell" data-execution_count="3">
+<div id="2ebeecb5" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Age                        0
 Gender                     0
@@ -242,7 +242,7 @@ dtype: int64</code></pre>
 </section>
 <section id="datatype-of-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="datatype-of-dataset">Datatype of Dataset</h3>
-<div id="bbc1e744" class="cell" data-execution_count="4">
+<div id="cddb3531" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Age                         int64
 Gender                     object
@@ -266,47 +266,35 @@ dtype: object</code></pre>
 </section>
 <section id="results-full-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="results-full-dataset">Results Full Dataset</h3>
-<div id="1af35e3c" class="cell" data-execution_count="5">
+<div id="10b9cc97" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
-<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  \
-NB        0.9075          0.0083     0.910     0.9545  0.8077       0.9754   
-KNN       0.8425          0.0199     0.875     0.8630  0.8077       0.9180   
-DT        0.9988          0.0025     1.000     1.0000  1.0000       1.0000   
-RF        0.9988          0.0025     0.990     1.0000  0.9744       1.0000   
-
-     F1-Score  
-NB     0.8750  
-KNN    0.8344  
-DT     1.0000  
-RF     0.9870  </code></pre>
+<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  F1-Score
+NB        0.9075          0.0083     0.910     0.9545  0.8077       0.9754    0.8750
+KNN       0.8425          0.0199     0.875     0.8630  0.8077       0.9180    0.8344
+DT        0.9988          0.0025     1.000     1.0000  1.0000       1.0000    1.0000
+RF        0.9988          0.0025     0.990     1.0000  0.9744       1.0000    0.9870</code></pre>
 </div>
 </div>
 </section>
 <section id="results-full-dataset-1" class="level3">
 <h3 class="anchored" data-anchor-id="results-full-dataset-1">Results Full Dataset</h3>
-<div id="bdcd239c" class="cell" data-execution_count="6">
+<div id="b3e4b1b3" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
-<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  \
-NB        0.7888          0.0272     0.835     0.7586  0.8462       0.8279   
-KNN       0.7488          0.0228     0.820     0.7838  0.7436       0.8689   
-DT        0.8138          0.0100     0.870     0.7653  0.9615       0.8115   
-RF        0.8575          0.0183     0.880     0.7647  1.0000       0.8033   
-
-     F1-Score  
-NB     0.8000  
-KNN    0.7632  
-DT     0.8523  
-RF     0.8667  </code></pre>
+<pre><code>     CV Accuracy  CV Accuracy SD  Accuracy  Precision  Recall  Specificity  F1-Score
+NB        0.7888          0.0272     0.835     0.7586  0.8462       0.8279    0.8000
+KNN       0.7488          0.0228     0.820     0.7838  0.7436       0.8689    0.7632
+DT        0.8138          0.0100     0.870     0.7653  0.9615       0.8115    0.8523
+RF        0.8575          0.0183     0.880     0.7647  1.0000       0.8033    0.8667</code></pre>
 </div>
 </div>
 </section>
 <section id="confusion-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
-<div id="7fd94adc" class="cell" data-execution_count="7">
+<div id="5ce6dac6" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="python_code_files/figure-html/cell-8-output-1.png" width="856" height="555" class="figure-img"></p>
+<p><img src="python_code_files/figure-html/cell-9-output-1.png" width="853" height="544" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -314,11 +302,11 @@ RF     0.8667  </code></pre>
 </section>
 <section id="ml-model-performance-per-dataset-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="ml-model-performance-per-dataset-comparison">ML Model Performance per Dataset Comparison</h3>
-<div id="0493830d" class="cell" data-execution_count="8">
+<div id="8ecd16d2" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="python_code_files/figure-html/cell-9-output-1.png" width="845" height="286" class="figure-img"></p>
+<p><img src="python_code_files/figure-html/cell-10-output-1.png" width="853" height="369" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -326,19 +314,19 @@ RF     0.8667  </code></pre>
 </section>
 <section id="dataset-performance-per-ml-model-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-performance-per-ml-model-comparison">Dataset Performance per ML Model Comparison</h3>
-<div id="d5f28e2c" class="cell" data-execution_count="9">
+<div id="e7793542" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="python_code_files/figure-html/cell-10-output-1.png" width="853" height="639" class="figure-img"></p>
+<p><img src="python_code_files/figure-html/cell-11-output-1.png" width="853" height="673" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="the-code" class="level2">
-<h2 class="anchored" data-anchor-id="the-code">The Code</h2>
+<section id="the-original-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-original-code">The Original Code</h2>
 <section id="imports" class="level3">
 <h3 class="anchored" data-anchor-id="imports">1. Imports</h3>
 <p><em>All libraries imported at the top of the file to avoid duplication and ensure a clear dependency overview.</em></p>
