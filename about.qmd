@@ -70,7 +70,7 @@ WRS Energie + Druckluft GmbH · Stuttgart, Germany
 
 ### Technical Skills
 **Microsoft Office Suite** – Excel, PowerPoint, Word, Power BI  
-**Data & Programming** – Python, SQL  
+**Data & Programming** – [Python](python_code.qmd), SQL  
 **Reporting & Documentation** – Quarto (YAML, Markdown)  
 **Data Science** – Machine Learning fundamentals
 
