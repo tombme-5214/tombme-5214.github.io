@@ -191,7 +191,7 @@ for name, model in models.items():
     trained_simple[name] = model_s
 
 # --- Graphic 1: Confusion Matrices ---
-fig, axes = plt.subplots(2, 4, figsize=(20, 9))
+fig, axes = plt.subplots(2, 4, figsize=(9, 5.85))
 fig.suptitle('Confusion Matrices — Full (top) vs Simplified (bottom)', fontsize=14, fontweight='bold')
 for idx, name in enumerate(models.keys()):
     ConfusionMatrixDisplay.from_estimator(trained_full[name],   X_test,   y_test,   ax=axes[0, idx])
@@ -199,7 +199,6 @@ for idx, name in enumerate(models.keys()):
     axes[0, idx].set_title(f'{name} (Full)')
     axes[1, idx].set_title(f'{name} (Simplified)')
 plt.tight_layout()
-plt.savefig('confusion_matrices.png', dpi=150)
 plt.show()
 ```
 
@@ -213,7 +212,7 @@ metrics      = ['CV Accuracy', 'Accuracy', 'Precision', 'Recall', 'Specificity',
 model_names  = list(models.keys())
 x, width     = np.arange(len(metrics)), 0.2
 
-fig, axes = plt.subplots(1, 2, figsize=(18, 6))
+fig, axes = plt.subplots(1, 2, figsize=(9, 3))
 fig.suptitle('Model Performance Comparison', fontsize=14, fontweight='bold')
 for i, name in enumerate(model_names):
     axes[0].bar(x + i * width, [results_full_df.loc[name, m]   for m in metrics], width, label=name)
@@ -227,7 +226,6 @@ for ax, title in zip(axes, ['Full Dataset', 'Simplified Dataset']):
     ax.legend()
     ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
 plt.tight_layout()
-plt.savefig('metrics_comparison.png', dpi=150)
 plt.show()
 ```
 
@@ -237,7 +235,7 @@ plt.show()
 #| eval: true
 #| echo: false
 # --- Graphic 3: Full vs Simplified per Model ---
-fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+fig, axes = plt.subplots(2, 2, figsize=(9, 6.75))
 fig.suptitle('Full vs Simplified Dataset — Model Performance Comparison', fontsize=14, fontweight='bold')
 width = 0.35
 for idx, name in enumerate(model_names):
@@ -252,7 +250,6 @@ for idx, name in enumerate(model_names):
     ax.legend()
     ax.axhline(y=1.0, color='grey', linestyle='--', linewidth=0.8)
 plt.tight_layout()
-plt.savefig('full_vs_simplified.png', dpi=150)
 plt.show()
 ```
 
