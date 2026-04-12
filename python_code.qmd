@@ -1,20 +1,32 @@
 ---
-title: "Machine Learning Python Code"
+title: "Machine Learning with Python"
+highlight-style: arrow
+code-tools: true
 ---
-## About
-The graphics displayed are the evaluation results of the full and simplified heart disease datasets. The code below was used to produce them for the assignment: 
-"**Evaluating Machine Learning Classification Algorithms for Heart Disease Prediction:** *Performance on Full and Reduced Clinical Datasets*"
+### About
+The graphics and outputs below are the evaluation results of classification models trained on both a full and simplified heart disease datasets. From raw dataset inspection through model training to performance comparison across four classification algorithms (Naïve Bayes, K-Nearest Neighbours, Decision Tree, Random Forest).
 
-## Evaluation Results
+The original code producing them was developed for the assignment:
+
+> [**Evaluating Machine Learning Classification Algorithms for Heart Disease Prediction:** *Performance on Full and Reduced Clinical Datasets*](assets/_projects/ml_ca.pdf)
+
+---
+
+### Evaluation Results
 
 ```{python}
-#| eval: true
-#| echo: false
-# SECTION 1 — IMPORTS
+#| eval: true 
+#| echo: true
+#| code-fold: true
+#| code-summary: "Show Section 1 — Imports"
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
 
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
@@ -79,7 +91,7 @@ df = pd.read_csv('assets/_projects/heart_disease_dataset.csv',
 
 ```
 
-### Shape of Dataset
+#### Shape of Dataset
 
 ```{python}
 #| eval: true
@@ -87,7 +99,7 @@ df = pd.read_csv('assets/_projects/heart_disease_dataset.csv',
 print(df.shape)
 ```
 
-### Missing Values in Dataset
+#### Missing Values in Dataset
 
 ```{python}
 #| eval: true
@@ -95,7 +107,7 @@ print(df.shape)
 print(df.isnull().sum())
 ```
 
-### Datatype of Dataset
+#### Datatype of Dataset
 
 ```{python}
 #| eval: true
@@ -202,7 +214,7 @@ results_simple_df = evaluate(
 
 ```
 
-### Results Full Dataset
+#### Results Full Dataset
 
 ```{python}
 #| eval: true
@@ -211,7 +223,7 @@ pd.set_option('display.width', 300)
 print(results_full_df)
 ```
 
-### Results Full Dataset
+#### Results Simplified Dataset
 
 ```{python}
 #| eval: true
@@ -234,11 +246,12 @@ for name, model in models.items():
     trained_simple[name] = model_s
 ```
 
-### Confusion Matrix
+#### Confusion Matrix
 
 ```{python}
 #| eval: true
 #| echo: false
+#| fig-cap: "Confusion matrices for all four models on the full (top) and simplified (bottom) datasets"
 # --- Graphic 1: Confusion Matrices ---
 fig, axes = plt.subplots(2, 4, figsize=(9, 5.85))
 fig.suptitle('Confusion Matrices — Full (top) vs Simplified (bottom)',
@@ -266,7 +279,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### ML Model Performance per Dataset Comparison
+#### ML Model Performance per Dataset Comparison
 
 ```{python}
 #| eval: true
@@ -307,7 +320,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Dataset Performance per ML Model Comparison
+#### Dataset Performance per ML Model Comparison
 
 ```{python}
 #| eval: true
@@ -343,9 +356,53 @@ fig.legend([bar_full, bar_simp], ['Full', 'Simplified'],
 plt.tight_layout()
 plt.show()
 ```
+```{python}
+#| eval: true
+#| echo: true
+#| code-fold: true
+#| code-summary: "Show — Interactive Metrics Chart"
+#| fig-cap: "Interactive bar chart — hover to compare model metrics across full and simplified datasets"
 
-## The Original Code
-### 1. Imports
+metrics_list = ['CV Accuracy', 'Accuracy', 'Precision', 'Recall', 'Specificity', 'F1-Score']
+model_names  = list(models.keys())
+
+fig = make_subplots(rows=1, cols=2,
+                    subplot_titles=['Full Dataset', 'Simplified Dataset'])
+
+for i, name in enumerate(model_names):
+    color = MODEL_COLORS[i]
+    fig.add_trace(go.Bar(
+        name=name,
+        x=metrics_list,
+        y=[results_full_df.loc[name, m] for m in metrics_list],
+        marker_color=color,
+        legendgroup=name,
+        showlegend=True
+    ), row=1, col=1)
+    fig.add_trace(go.Bar(
+        name=name,
+        x=metrics_list,
+        y=[results_simple_df.loc[name, m] for m in metrics_list],
+        marker_color=color,
+        legendgroup=name,
+        showlegend=False
+    ), row=1, col=2)
+
+fig.update_layout(
+    barmode='group',
+    plot_bgcolor=PALETTE['surface'],
+    paper_bgcolor=PALETTE['surface'],
+    font=dict(color=PALETTE['text'], size=10),
+    legend=dict(orientation='h', y=-0.2),
+    margin=dict(l=0, r=0, t=30, b=0),
+    yaxis=dict(range=[0.7, 1.05]),
+    yaxis2=dict(range=[0.7, 1.05]),
+)
+fig.show()
+```
+
+### The Original Code
+#### 1. Imports
 *All libraries imported at the top of the file to avoid duplication and ensure a clear dependency overview.*
 
 ```python
@@ -365,7 +422,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 ```
 
-### 2. Dataset and Data Preparation
+#### 2. Dataset and Data Preparation
 *Loads the CSV, encodes binary/ordinal/categorical variables, performs 80–20 train-test split, standardises numerical features, and creates the simplified dataset by removing the five clinically restricted attributes.*
 
 ```python
@@ -440,7 +497,7 @@ scaler_s = StandardScaler()
 X_train_s[numerical_simple] = scaler_s.fit_transform(X_train_s[numerical_simple])
 X_test_s[numerical_simple]  = scaler_s.transform(X_test_s[numerical_simple])
 ```
-### 3. Classification Algorithms and Evaluation
+#### 3. Classification Algorithms and Evaluation
 *Defines NB, KNN, DT, and RF with their tuning parameters. Applies 5-fold stratified CV and computes all six evaluation metrics for both the full and simplified datasets.*
 
 ```python
@@ -487,7 +544,7 @@ print(results_full_df)
 print("\n=== SIMPLIFIED DATASET ===")
 print(results_simple_df)
 ```
-### 4. Evaluation Graphics
+#### 4. Evaluation Graphics
 *Generates three figures: confusion matrices (full vs simplified), grouped metrics bar charts per dataset, and side-by-side full vs simplified comparison per model.*
 
 ```python
