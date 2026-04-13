@@ -38,12 +38,12 @@ This minor was completed in the fourth year, spanning three modules — *Data An
 :::
 
 ::: {.card style="padding:15px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
-![](assets/_project_pictures/_ml_ca.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
-[ML Pyton Code →](python_code.qmd){.btn .btn-accent .btn-sm}
+![](assets/_project_pictures/_ml_pc.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+[Pyton Code →](python_code.qmd){.btn .btn-accent .btn-sm}
 :::
 
 ::: {.card style="padding:15px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
-![](assets/_project_pictures/_ml_ca.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
+![](assets/_project_pictures/_ba_cr.jpg){style="width:100%; border-radius:8px; margin-bottom:10px;"}
 [Reflection →](reflection.qmd){.btn .btn-accent .btn-sm}
 :::
 
