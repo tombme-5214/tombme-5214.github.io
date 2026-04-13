@@ -1,14 +1,6 @@
 ---
 title: "Critical Reflection"
-format:
-  html:
-    from: markdown+hard_line_breaks
 ---
-<style>
-p {
-  text-align: justify;
-}
-</style>
 
 Entering the Workflow & Data Management module, my technical foundation was limited to basic Python, NumPy, and SQL. I had no conceptual framework for professional data workflows, version control, or structured digital project management. What I did bring was an instinctive sense of organisation: a habit of structured folders, clean desktops, and methodical thinking In the retrospect, this provided a more useful starting point than I initially recognised.
 

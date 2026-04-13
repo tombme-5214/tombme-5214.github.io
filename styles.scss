@@ -66,6 +66,10 @@ main {
   margin: auto;
 }
 
+p:not(:has(.btn)) {
+  text-align: justify;
+  hyphens: auto;
+}
 
 /*-- NAVBAR --*/
 .navbar {

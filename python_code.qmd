@@ -356,6 +356,8 @@ fig.legend([bar_full, bar_simp], ['Full', 'Simplified'],
 plt.tight_layout()
 plt.show()
 ```
+#### Interactive Metrics Chart
+
 ```{python}
 #| eval: true
 #| echo: true
