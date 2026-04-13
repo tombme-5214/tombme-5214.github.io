@@ -74,7 +74,7 @@ This minor consists of: *Data Analytics: Machine Learning & Advanced Python*, *W
 [Academic]{.badge .bg-secondary}
 :::
 
-[ML Eassy →](assets/_projects/ml_ca.pdf){.btn .btn-accent .btn-sm}
+[ML Essay →](assets/_projects/ml_ca.pdf){.btn .btn-accent .btn-sm}
 :::
 
 ::: {.card style="padding:15px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
@@ -89,7 +89,7 @@ This minor consists of: *Data Analytics: Machine Learning & Advanced Python*, *W
 [Academic]{.badge .bg-secondary}
 :::
 
-[Pyton Code →](python_code.qmd){.btn .btn-accent .btn-sm}
+[Python Code →](python_code.qmd){.btn .btn-accent .btn-sm}
 :::
 
 ::: {.card style="padding:15px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
