@@ -26,9 +26,9 @@ This module focuses on independent academic research, including proposal develop
 
 ---
 
-## Business Analytics Minor
+## Business Analytics
 
-This minor was completed in the fourth year, spanning three modules — *Data Analytics: Machine Learning & Advanced Python*; *Workflow & Data Management*; and *Data Analytics: Programming & Visualisation* — covering the full pipeline from data handling and processing to applied machine learning and communicative visualisation.
+This minor consists of: *Data Analytics: Machine Learning & Advanced Python*, *Workflow & Data Management*, and *Data Analytics: Programming & Visualisation*  - covered the process of handling and processing data, as well as applied machine learning and communicative visualisation
 
 <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; max-width:790px;">
 
