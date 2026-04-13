@@ -1,0 +1,36 @@
+---
+title: "Contact & References"
+---
+
+### Get in Touch
+
+Feel free to reach out for academic collaboration, project enquiries, or professional opportunities.
+
+::: {style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; max-width:790px; margin-bottom:2rem;"}
+
+::: {.card style="padding:20px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
+<i class="bi bi-envelope" style="font-size:1.5rem; color:var(--accent);"></i>
+
+[tom.blume2@mail.dcu.ie](tom.blume2@mail.dcu.ie)
+:::
+
+::: {.card style="padding:20px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
+<i class="bi bi-linkedin" style="font-size:1.5rem; color:var(--accent);"></i>
+
+[LinkedIn](https://www.linkedin.com/in/tom-bme)
+:::
+
+::: {.card style="padding:20px; border-radius:10px; box-shadow:0 1.5px 6px var(--accent); text-align:center;"}
+<i class="bi bi-github" style="font-size:1.5rem; color:var(--accent);"></i>
+
+[GitHub](https://github.com/tombme-5214)
+:::
+
+:::
+
+---
+
+### Professional & Academic References
+
+> References are available upon request.
+
